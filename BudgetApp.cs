@@ -62,7 +62,7 @@ namespace PoeDesign
 
         private void btnBHome_Click(object sender, EventArgs e)
         {
-            tpHome.SelectTab(tbHome);
+            tpHome.SelectTab(tcHome);
         }
 
         private void btnTFinances_Click(object sender, EventArgs e)
