@@ -27,8 +27,7 @@ namespace PoeDesign
 
         public BudgetApp()
         {
-            btnNAbout.Focus();  //Place focus on Next button on program start
-            InitializeComponent();           
+            InitializeComponent();
         }
 
         private void btnSave_Click(object sender, EventArgs e)
