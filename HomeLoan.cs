@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Windows.Forms;
 
 namespace PoeDesign
 {
@@ -32,18 +33,26 @@ namespace PoeDesign
             double principalAmt; // principal amount
             double amtPaid; //amount paid
 
-            principalAmt = purchasePrice - depAmt;//New opening balance
+            principalAmt = (double)(decimal)(purchasePrice - depAmt);//New opening balance
             interest = interest / 100;
             period = (period / 12);
 
             //Simple interest formula
-            amtPaid = (principalAmt * (1 + (interest * period)));
+            amtPaid = (double)(decimal)(principalAmt * (1 + (interest * period)));
 
-            monthlyPayment = (amtPaid / (period * 12));
+            monthlyPayment = (double)(decimal)(amtPaid / (period * 12));
+            PrintReport(principalAmt, amtPaid, monthlyPayment);
             return monthlyPayment;
         }
         #endregion
-
+        public void PrintReport(double loanAmt, double accLoanAmt, double monthlyRepay )
+        {
+            String strDisplay = "";
+            strDisplay = "Principal loan amount: R" + loanAmt + 
+                "\nAccumulated loan amount: R" + accLoanAmt + 
+                "\nMonthly Repayments: R" + monthlyRepay;
+            MessageBox.Show(strDisplay,"Report"); 
+        }
 
         /*
          * Author: Reece Wanvig

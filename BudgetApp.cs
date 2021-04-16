@@ -62,7 +62,7 @@ namespace PoeDesign
 
         private void btnBHome_Click(object sender, EventArgs e)
         {
-            tpHome.SelectTab(tbHome);
+            tpHome.SelectTab(tcHome);
         }
 
         private void btnTFinances_Click(object sender, EventArgs e)
@@ -120,7 +120,7 @@ namespace PoeDesign
             expTot = hl.getTotal();
             MoneyLeft = (decimal)((income * tax / 100) - (expTot + monthlyLoanRepay));
 
-            MessageBox.Show("Money left: R" + MoneyLeft);
+            MessageBox.Show("Money left: R" + MoneyLeft,"Buy Deduction Amount");
         }
         #endregion
 
@@ -132,11 +132,12 @@ namespace PoeDesign
             if (monthlyPay >= thirdIncome)
             {
                 MessageBox.Show("Monthly loan payment is : R" + monthlyPay +
-                    "\nA Third of users income: R" + thirdIncome + "\nHome Loan not approved");
+                    "\nA Third of users income: R" + thirdIncome + 
+                    "\nHome Loan not approved","Approval");
             }
             else
             {
-                MessageBox.Show("Home Loan approved");
+                MessageBox.Show("Home Loan approved","Approval");
             }
             BudgetApp ba = new BudgetApp();
             ba.PropBuyDeduction();
@@ -159,7 +160,7 @@ namespace PoeDesign
             expTot = hl.getTotal();
             MoneyLeft = (decimal)(income - (rentAmt + expTot));
 
-            MessageBox.Show("Money left: R" + MoneyLeft);
+            MessageBox.Show("Money left: R" + MoneyLeft,"Rent Deduction Amount");
             Application.Exit(); //Ends the program
         }
         #endregion

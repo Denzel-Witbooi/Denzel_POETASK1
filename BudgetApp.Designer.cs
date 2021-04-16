@@ -226,13 +226,13 @@ namespace PoeDesign
             // 
             // tpFinances
             // 
+            this.tpFinances.BackColor = System.Drawing.Color.DarkGray;
             this.tpFinances.Controls.Add(this.panel1);
             this.tpFinances.Location = new System.Drawing.Point(4, 24);
             this.tpFinances.Name = "tpFinances";
             this.tpFinances.Size = new System.Drawing.Size(959, 452);
             this.tpFinances.TabIndex = 2;
             this.tpFinances.Text = "Finances";
-            this.tpFinances.UseVisualStyleBackColor = true;
             // 
             // panel1
             // 
@@ -411,13 +411,13 @@ namespace PoeDesign
             // 
             // tpAccom
             // 
+            this.tpAccom.BackColor = System.Drawing.Color.DarkGray;
             this.tpAccom.Controls.Add(this.panel7);
             this.tpAccom.Location = new System.Drawing.Point(4, 24);
             this.tpAccom.Name = "tpAccom";
             this.tpAccom.Size = new System.Drawing.Size(959, 452);
             this.tpAccom.TabIndex = 3;
             this.tpAccom.Text = "Accommodation";
-            this.tpAccom.UseVisualStyleBackColor = true;
             // 
             // panel7
             // 
@@ -465,13 +465,13 @@ namespace PoeDesign
             // 
             // tpRent
             // 
+            this.tpRent.BackColor = System.Drawing.Color.DarkGray;
             this.tpRent.Controls.Add(this.panel3);
             this.tpRent.Location = new System.Drawing.Point(4, 24);
             this.tpRent.Name = "tpRent";
             this.tpRent.Size = new System.Drawing.Size(959, 452);
             this.tpRent.TabIndex = 4;
             this.tpRent.Text = "Rent";
-            this.tpRent.UseVisualStyleBackColor = true;
             // 
             // panel3
             // 
@@ -525,13 +525,13 @@ namespace PoeDesign
             // 
             // tpBuy
             // 
+            this.tpBuy.BackColor = System.Drawing.Color.DarkGray;
             this.tpBuy.Controls.Add(this.panel5);
             this.tpBuy.Location = new System.Drawing.Point(4, 24);
             this.tpBuy.Name = "tpBuy";
             this.tpBuy.Size = new System.Drawing.Size(959, 452);
             this.tpBuy.TabIndex = 5;
             this.tpBuy.Text = "Buy";
-            this.tpBuy.UseVisualStyleBackColor = true;
             // 
             // panel5
             // 
@@ -607,9 +607,9 @@ namespace PoeDesign
             this.lblInterest.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblInterest.Location = new System.Drawing.Point(58, 110);
             this.lblInterest.Name = "lblInterest";
-            this.lblInterest.Size = new System.Drawing.Size(153, 15);
+            this.lblInterest.Size = new System.Drawing.Size(99, 15);
             this.lblInterest.TabIndex = 12;
-            this.lblInterest.Text = "Interest rate(percentage):";
+            this.lblInterest.Text = "Interest rate(%):";
             // 
             // lblDeposit
             // 
@@ -617,9 +617,9 @@ namespace PoeDesign
             this.lblDeposit.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblDeposit.Location = new System.Drawing.Point(58, 80);
             this.lblDeposit.Name = "lblDeposit";
-            this.lblDeposit.Size = new System.Drawing.Size(83, 15);
+            this.lblDeposit.Size = new System.Drawing.Size(101, 15);
             this.lblDeposit.TabIndex = 11;
-            this.lblDeposit.Text = "Total Deposit:";
+            this.lblDeposit.Text = "Total Deposit(%):";
             // 
             // lblPurchPrice
             // 
@@ -668,6 +668,7 @@ namespace PoeDesign
             this.Controls.Add(this.tpHome);
             this.Controls.Add(this.mnuMenu);
             this.Name = "BudgetApp";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "BudgetApp 2.0";
             this.tpHome.ResumeLayout(false);
             this.tcHome.ResumeLayout(false);
