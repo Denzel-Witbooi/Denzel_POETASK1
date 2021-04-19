@@ -6,6 +6,7 @@ namespace PoeDesign
 {
     class Budget
     {
+        //Youtube video: https://youtu.be/g6P9GECt11o
         #region properties for main vars
         public double MonthlyIncome { get; set; }
         public double MonthlyTax { get; set; }

@@ -33,21 +33,34 @@ namespace PoeDesign
         private void btnSave_Click(object sender, EventArgs e)
         {
             #region convert text box vars and store in new vars
-            income = Convert.ToDouble(txtIncome.Text);
-            tax = Convert.ToDouble(txtTax.Text);
-            double groceries = Convert.ToDouble(txtGroceries.Text);
-            double waterALights = Convert.ToDouble(txtWT.Text);
-            double travel = Convert.ToDouble(txtTravel.Text);
-            double cell = Convert.ToDouble(txtCell.Text);
-            double other = Convert.ToDouble(txtOther.Text);
+            //try-catch for when user enters text/symbols or
+            //leave the text box empty
+            try
+            {
+                income = Convert.ToDouble(txtIncome.Text);
+                double tax = Convert.ToDouble(txtTax.Text);
+                double groceries = Convert.ToDouble(txtGroceries.Text);
+                double waterALights = Convert.ToDouble(txtWT.Text);
+                double travel = Convert.ToDouble(txtTravel.Text);
+                double cell = Convert.ToDouble(txtCell.Text);
+                double other = Convert.ToDouble(txtOther.Text);
+                
+                #region pass vars to set methods from Budget and HomeLoan class
+                b.MonthlyIncome = income;
+                b.MonthlyIncome = tax;
+                hl.setArray(numExpenses);
+                hl.addToArray(groceries, waterALights, travel, cell, other);
+                #endregion
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Please enter the correct value and no text/symbols " + 
+                    "\n or leaving the textbox empty");
+                Application.Exit();
+            }
             #endregion
 
-            #region pass vars to set methods from Budget and HomeLoan class
-            b.MonthlyIncome = income;
-            b.MonthlyIncome = tax;
-            hl.setArray(numExpenses);
-            hl.addToArray(groceries, waterALights, travel, cell, other);
-            #endregion
+
 
             tpHome.SelectTab(tpAccom); //redirects to Accommodation page
 
@@ -101,14 +114,25 @@ namespace PoeDesign
         #region calcBuy button method to calculate monthly loan repayment
         private void btnCalcBuy_Click(object sender, EventArgs e)
         {
-            double Price = Convert.ToDouble(txtPurchPrice.Text);
-            double deposit = Convert.ToDouble(txtDeposit.Text);
-            double interest = Convert.ToDouble(txtInterest.Text);
-            double period = Convert.ToDouble(txtNumMonths.Text);
+            #region try-catch when user enters no values/incorrect format
+            try
+            {
+                double Price = Convert.ToDouble(txtPurchPrice.Text);
+                double deposit = Convert.ToDouble(txtDeposit.Text);
+                double interest = Convert.ToDouble(txtInterest.Text);
+                double period = Convert.ToDouble(txtNumMonths.Text);
 
-            monthlyLoanRepay = hl.CalcRepayment(Price, period, interest, deposit);
+                monthlyLoanRepay = hl.CalcRepayment(Price, period, interest, deposit);
 
-            LoanApproval(monthlyLoanRepay);
+                LoanApproval(monthlyLoanRepay);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Please enter the correct value and no text/symbols " +
+                     "\n or leaving the textbox empty");
+                Application.Exit();
+            }
+            #endregion
         }
         #endregion
 
