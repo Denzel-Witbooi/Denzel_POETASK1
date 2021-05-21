@@ -43,23 +43,29 @@ namespace PoeDesign
             this.label5 = new System.Windows.Forms.Label();
             this.tpFinances = new System.Windows.Forms.TabPage();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.btnSave = new System.Windows.Forms.Button();
-            this.txtOther = new System.Windows.Forms.TextBox();
-            this.txtCell = new System.Windows.Forms.TextBox();
-            this.txtTravel = new System.Windows.Forms.TextBox();
-            this.txtWT = new System.Windows.Forms.TextBox();
-            this.txtGroceries = new System.Windows.Forms.TextBox();
+            this.btnAddFinances = new System.Windows.Forms.Button();
+            this.lblExpAmt = new System.Windows.Forms.Label();
+            this.nudExpCount = new System.Windows.Forms.NumericUpDown();
             this.txtTax = new System.Windows.Forms.TextBox();
             this.txtIncome = new System.Windows.Forms.TextBox();
-            this.lblOther = new System.Windows.Forms.Label();
-            this.lblPhone = new System.Windows.Forms.Label();
-            this.lblTravelCosts = new System.Windows.Forms.Label();
-            this.lblWaterAndLights = new System.Windows.Forms.Label();
-            this.lblGroceries = new System.Windows.Forms.Label();
-            this.LblExpensesHeader = new System.Windows.Forms.Label();
             this.lblTax = new System.Windows.Forms.Label();
             this.lblIncome = new System.Windows.Forms.Label();
             this.lblFinanceHeader = new System.Windows.Forms.Label();
+            this.tpExp = new System.Windows.Forms.TabPage();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.btnNAcc = new System.Windows.Forms.Button();
+            this.btnBFinances = new System.Windows.Forms.Button();
+            this.lblTotal = new System.Windows.Forms.Label();
+            this.btnView = new System.Windows.Forms.Button();
+            this.btnRefresh = new System.Windows.Forms.Button();
+            this.lbExpenses = new System.Windows.Forms.ListBox();
+            this.btnClear = new System.Windows.Forms.Button();
+            this.txtExpCost = new System.Windows.Forms.TextBox();
+            this.txtExpName = new System.Windows.Forms.TextBox();
+            this.lblExpCost = new System.Windows.Forms.Label();
+            this.lblExpName = new System.Windows.Forms.Label();
+            this.btnAdd = new System.Windows.Forms.Button();
+            this.LblExpensesHeader = new System.Windows.Forms.Label();
             this.tpAccom = new System.Windows.Forms.TabPage();
             this.panel7 = new System.Windows.Forms.Panel();
             this.cbPropType = new System.Windows.Forms.ComboBox();
@@ -83,20 +89,50 @@ namespace PoeDesign
             this.lblDeposit = new System.Windows.Forms.Label();
             this.lblPurchPrice = new System.Windows.Forms.Label();
             this.lblBuyHeader = new System.Windows.Forms.Label();
+            this.tpVehicle = new System.Windows.Forms.TabPage();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.cbVehicleOption = new System.Windows.Forms.ComboBox();
+            this.lblVehicleChoice = new System.Windows.Forms.Label();
+            this.lblVehicle = new System.Windows.Forms.Label();
+            this.tpVehicleBuy = new System.Windows.Forms.TabPage();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.txtMake = new System.Windows.Forms.TextBox();
+            this.lblMake = new System.Windows.Forms.Label();
+            this.btnVehicleCalc = new System.Windows.Forms.Button();
+            this.label12 = new System.Windows.Forms.Label();
+            this.lblVehiclePerc = new System.Windows.Forms.Label();
+            this.lblTotDepV = new System.Windows.Forms.Label();
+            this.lblPPrice = new System.Windows.Forms.Label();
+            this.lblModel = new System.Windows.Forms.Label();
+            this.txtModel = new System.Windows.Forms.TextBox();
+            this.txtEstInsurancePrem = new System.Windows.Forms.TextBox();
+            this.txtCarInterestRate = new System.Windows.Forms.TextBox();
+            this.txtCarTotDep = new System.Windows.Forms.TextBox();
+            this.txtCarPurchPrice = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.mnuMenu = new System.Windows.Forms.MenuStrip();
             this.mnuItemExit = new System.Windows.Forms.ToolStripMenuItem();
+            this.panel8 = new System.Windows.Forms.Panel();
             this.tpHome.SuspendLayout();
             this.tcHome.SuspendLayout();
             this.tpAbout.SuspendLayout();
             this.tpFinances.SuspendLayout();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudExpCount)).BeginInit();
+            this.tpExp.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.tpAccom.SuspendLayout();
             this.panel7.SuspendLayout();
             this.tpRent.SuspendLayout();
             this.panel3.SuspendLayout();
             this.tpBuy.SuspendLayout();
             this.panel5.SuspendLayout();
+            this.tpVehicle.SuspendLayout();
+            this.panel4.SuspendLayout();
+            this.tpVehicleBuy.SuspendLayout();
+            this.panel6.SuspendLayout();
             this.mnuMenu.SuspendLayout();
+            this.panel8.SuspendLayout();
             this.SuspendLayout();
             // 
             // tpHome
@@ -104,9 +140,12 @@ namespace PoeDesign
             this.tpHome.Controls.Add(this.tcHome);
             this.tpHome.Controls.Add(this.tpAbout);
             this.tpHome.Controls.Add(this.tpFinances);
+            this.tpHome.Controls.Add(this.tpExp);
             this.tpHome.Controls.Add(this.tpAccom);
             this.tpHome.Controls.Add(this.tpRent);
             this.tpHome.Controls.Add(this.tpBuy);
+            this.tpHome.Controls.Add(this.tpVehicle);
+            this.tpHome.Controls.Add(this.tpVehicleBuy);
             this.tpHome.Location = new System.Drawing.Point(12, 27);
             this.tpHome.Name = "tpHome";
             this.tpHome.SelectedIndex = 0;
@@ -187,16 +226,16 @@ namespace PoeDesign
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(305, 74);
+            this.label2.Font = new System.Drawing.Font("Arial", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label2.Location = new System.Drawing.Point(188, 67);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(489, 270);
+            this.label2.Size = new System.Drawing.Size(605, 324);
             this.label2.TabIndex = 3;
             this.label2.Text = resources.GetString("label2.Text");
             // 
             // btnTFinances
             // 
-            this.btnTFinances.Location = new System.Drawing.Point(596, 410);
+            this.btnTFinances.Location = new System.Drawing.Point(552, 410);
             this.btnTFinances.Name = "btnTFinances";
             this.btnTFinances.Size = new System.Drawing.Size(75, 23);
             this.btnTFinances.TabIndex = 2;
@@ -218,7 +257,7 @@ namespace PoeDesign
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Segoe UI", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point);
-            this.label5.Location = new System.Drawing.Point(305, 33);
+            this.label5.Location = new System.Drawing.Point(374, 30);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(272, 21);
             this.label5.TabIndex = 0;
@@ -237,165 +276,79 @@ namespace PoeDesign
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.RosyBrown;
+            this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel1.Controls.Add(this.btnSave);
-            this.panel1.Controls.Add(this.txtOther);
-            this.panel1.Controls.Add(this.txtCell);
-            this.panel1.Controls.Add(this.txtTravel);
-            this.panel1.Controls.Add(this.txtWT);
-            this.panel1.Controls.Add(this.txtGroceries);
+            this.panel1.Controls.Add(this.btnAddFinances);
+            this.panel1.Controls.Add(this.lblExpAmt);
+            this.panel1.Controls.Add(this.nudExpCount);
             this.panel1.Controls.Add(this.txtTax);
             this.panel1.Controls.Add(this.txtIncome);
-            this.panel1.Controls.Add(this.lblOther);
-            this.panel1.Controls.Add(this.lblPhone);
-            this.panel1.Controls.Add(this.lblTravelCosts);
-            this.panel1.Controls.Add(this.lblWaterAndLights);
-            this.panel1.Controls.Add(this.lblGroceries);
-            this.panel1.Controls.Add(this.LblExpensesHeader);
             this.panel1.Controls.Add(this.lblTax);
             this.panel1.Controls.Add(this.lblIncome);
             this.panel1.Controls.Add(this.lblFinanceHeader);
-            this.panel1.Location = new System.Drawing.Point(189, 6);
+            this.panel1.Location = new System.Drawing.Point(113, 81);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(451, 481);
+            this.panel1.Size = new System.Drawing.Size(568, 254);
             this.panel1.TabIndex = 0;
             // 
-            // btnSave
+            // btnAddFinances
             // 
-            this.btnSave.Location = new System.Drawing.Point(207, 378);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(75, 23);
-            this.btnSave.TabIndex = 35;
-            this.btnSave.Text = "SAVE";
-            this.btnSave.UseVisualStyleBackColor = true;
-            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            this.btnAddFinances.Location = new System.Drawing.Point(256, 215);
+            this.btnAddFinances.Name = "btnAddFinances";
+            this.btnAddFinances.Size = new System.Drawing.Size(75, 23);
+            this.btnAddFinances.TabIndex = 38;
+            this.btnAddFinances.Text = "ADD";
+            this.btnAddFinances.UseVisualStyleBackColor = true;
+            this.btnAddFinances.Click += new System.EventHandler(this.btnAddFinances_Click);
             // 
-            // txtOther
+            // lblExpAmt
             // 
-            this.txtOther.Location = new System.Drawing.Point(207, 327);
-            this.txtOther.Name = "txtOther";
-            this.txtOther.Size = new System.Drawing.Size(123, 23);
-            this.txtOther.TabIndex = 34;
+            this.lblExpAmt.AutoSize = true;
+            this.lblExpAmt.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point);
+            this.lblExpAmt.Location = new System.Drawing.Point(36, 164);
+            this.lblExpAmt.Name = "lblExpAmt";
+            this.lblExpAmt.Size = new System.Drawing.Size(183, 20);
+            this.lblExpAmt.TabIndex = 37;
+            this.lblExpAmt.Text = "Add number of expenses:";
             // 
-            // txtCell
+            // nudExpCount
             // 
-            this.txtCell.Location = new System.Drawing.Point(207, 295);
-            this.txtCell.Name = "txtCell";
-            this.txtCell.Size = new System.Drawing.Size(123, 23);
-            this.txtCell.TabIndex = 33;
-            // 
-            // txtTravel
-            // 
-            this.txtTravel.Location = new System.Drawing.Point(207, 263);
-            this.txtTravel.Name = "txtTravel";
-            this.txtTravel.Size = new System.Drawing.Size(123, 23);
-            this.txtTravel.TabIndex = 32;
-            // 
-            // txtWT
-            // 
-            this.txtWT.Location = new System.Drawing.Point(142, 229);
-            this.txtWT.Name = "txtWT";
-            this.txtWT.Size = new System.Drawing.Size(127, 23);
-            this.txtWT.TabIndex = 31;
-            // 
-            // txtGroceries
-            // 
-            this.txtGroceries.Location = new System.Drawing.Point(142, 198);
-            this.txtGroceries.Name = "txtGroceries";
-            this.txtGroceries.Size = new System.Drawing.Size(127, 23);
-            this.txtGroceries.TabIndex = 30;
+            this.nudExpCount.Location = new System.Drawing.Point(368, 166);
+            this.nudExpCount.Name = "nudExpCount";
+            this.nudExpCount.Size = new System.Drawing.Size(120, 23);
+            this.nudExpCount.TabIndex = 36;
             // 
             // txtTax
             // 
-            this.txtTax.Location = new System.Drawing.Point(143, 123);
+            this.txtTax.Location = new System.Drawing.Point(368, 123);
             this.txtTax.Name = "txtTax";
-            this.txtTax.Size = new System.Drawing.Size(127, 23);
+            this.txtTax.Size = new System.Drawing.Size(138, 23);
             this.txtTax.TabIndex = 29;
             // 
             // txtIncome
             // 
-            this.txtIncome.Location = new System.Drawing.Point(286, 83);
+            this.txtIncome.Location = new System.Drawing.Point(368, 84);
             this.txtIncome.Name = "txtIncome";
             this.txtIncome.Size = new System.Drawing.Size(138, 23);
             this.txtIncome.TabIndex = 28;
             // 
-            // lblOther
-            // 
-            this.lblOther.AutoSize = true;
-            this.lblOther.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblOther.Location = new System.Drawing.Point(36, 327);
-            this.lblOther.Name = "lblOther";
-            this.lblOther.Size = new System.Drawing.Size(98, 15);
-            this.lblOther.TabIndex = 27;
-            this.lblOther.Text = "Other expenses:";
-            // 
-            // lblPhone
-            // 
-            this.lblPhone.AutoSize = true;
-            this.lblPhone.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblPhone.Location = new System.Drawing.Point(36, 295);
-            this.lblPhone.Name = "lblPhone";
-            this.lblPhone.Size = new System.Drawing.Size(151, 15);
-            this.lblPhone.TabIndex = 26;
-            this.lblPhone.Text = "Cell phone and telephone:";
-            // 
-            // lblTravelCosts
-            // 
-            this.lblTravelCosts.AutoSize = true;
-            this.lblTravelCosts.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblTravelCosts.Location = new System.Drawing.Point(36, 263);
-            this.lblTravelCosts.Name = "lblTravelCosts";
-            this.lblTravelCosts.Size = new System.Drawing.Size(171, 15);
-            this.lblTravelCosts.TabIndex = 25;
-            this.lblTravelCosts.Text = "Travel Costs(including petrol):";
-            // 
-            // lblWaterAndLights
-            // 
-            this.lblWaterAndLights.AutoSize = true;
-            this.lblWaterAndLights.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblWaterAndLights.Location = new System.Drawing.Point(36, 229);
-            this.lblWaterAndLights.Name = "lblWaterAndLights";
-            this.lblWaterAndLights.Size = new System.Drawing.Size(104, 15);
-            this.lblWaterAndLights.TabIndex = 24;
-            this.lblWaterAndLights.Text = "Water and Lights:";
-            // 
-            // lblGroceries
-            // 
-            this.lblGroceries.AutoSize = true;
-            this.lblGroceries.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblGroceries.Location = new System.Drawing.Point(36, 198);
-            this.lblGroceries.Name = "lblGroceries";
-            this.lblGroceries.Size = new System.Drawing.Size(64, 15);
-            this.lblGroceries.TabIndex = 23;
-            this.lblGroceries.Text = "Groceries:";
-            // 
-            // LblExpensesHeader
-            // 
-            this.LblExpensesHeader.AutoSize = true;
-            this.LblExpensesHeader.Font = new System.Drawing.Font("Segoe UI", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point);
-            this.LblExpensesHeader.Location = new System.Drawing.Point(194, 166);
-            this.LblExpensesHeader.Name = "LblExpensesHeader";
-            this.LblExpensesHeader.Size = new System.Drawing.Size(98, 25);
-            this.LblExpensesHeader.TabIndex = 22;
-            this.LblExpensesHeader.Text = "Expenses:";
-            // 
             // lblTax
             // 
             this.lblTax.AutoSize = true;
-            this.lblTax.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblTax.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point);
             this.lblTax.Location = new System.Drawing.Point(36, 123);
             this.lblTax.Name = "lblTax";
-            this.lblTax.Size = new System.Drawing.Size(78, 15);
+            this.lblTax.Size = new System.Drawing.Size(98, 20);
             this.lblTax.TabIndex = 21;
             this.lblTax.Text = "Monthly Tax:";
             // 
             // lblIncome
             // 
             this.lblIncome.AutoSize = true;
-            this.lblIncome.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblIncome.Location = new System.Drawing.Point(36, 83);
+            this.lblIncome.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point);
+            this.lblIncome.Location = new System.Drawing.Point(32, 83);
             this.lblIncome.Name = "lblIncome";
-            this.lblIncome.Size = new System.Drawing.Size(244, 15);
+            this.lblIncome.Size = new System.Drawing.Size(299, 20);
             this.lblIncome.TabIndex = 20;
             this.lblIncome.Text = "Gross monthly income(before deductions):";
             // 
@@ -403,11 +356,159 @@ namespace PoeDesign
             // 
             this.lblFinanceHeader.AutoSize = true;
             this.lblFinanceHeader.Font = new System.Drawing.Font("Segoe UI", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point);
-            this.lblFinanceHeader.Location = new System.Drawing.Point(181, 20);
+            this.lblFinanceHeader.Location = new System.Drawing.Point(240, 19);
             this.lblFinanceHeader.Name = "lblFinanceHeader";
             this.lblFinanceHeader.Size = new System.Drawing.Size(88, 25);
             this.lblFinanceHeader.TabIndex = 0;
             this.lblFinanceHeader.Text = "Finances";
+            // 
+            // tpExp
+            // 
+            this.tpExp.Controls.Add(this.panel2);
+            this.tpExp.Location = new System.Drawing.Point(4, 24);
+            this.tpExp.Name = "tpExp";
+            this.tpExp.Size = new System.Drawing.Size(959, 452);
+            this.tpExp.TabIndex = 6;
+            this.tpExp.Text = "Expenses";
+            this.tpExp.UseVisualStyleBackColor = true;
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.Salmon;
+            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel2.Controls.Add(this.panel8);
+            this.panel2.Controls.Add(this.btnNAcc);
+            this.panel2.Controls.Add(this.btnBFinances);
+            this.panel2.Controls.Add(this.lblTotal);
+            this.panel2.Controls.Add(this.btnView);
+            this.panel2.Controls.Add(this.btnRefresh);
+            this.panel2.Controls.Add(this.lbExpenses);
+            this.panel2.Controls.Add(this.LblExpensesHeader);
+            this.panel2.Location = new System.Drawing.Point(96, 20);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(651, 383);
+            this.panel2.TabIndex = 0;
+            // 
+            // btnNAcc
+            // 
+            this.btnNAcc.Location = new System.Drawing.Point(344, 346);
+            this.btnNAcc.Name = "btnNAcc";
+            this.btnNAcc.Size = new System.Drawing.Size(75, 23);
+            this.btnNAcc.TabIndex = 55;
+            this.btnNAcc.Text = "NEXT";
+            this.btnNAcc.UseVisualStyleBackColor = true;
+            this.btnNAcc.Click += new System.EventHandler(this.btnNAcc_Click);
+            // 
+            // btnBFinances
+            // 
+            this.btnBFinances.Location = new System.Drawing.Point(245, 346);
+            this.btnBFinances.Name = "btnBFinances";
+            this.btnBFinances.Size = new System.Drawing.Size(75, 23);
+            this.btnBFinances.TabIndex = 54;
+            this.btnBFinances.Text = "BACK";
+            this.btnBFinances.UseVisualStyleBackColor = true;
+            this.btnBFinances.Click += new System.EventHandler(this.btnBFinances_Click);
+            // 
+            // lblTotal
+            // 
+            this.lblTotal.AutoSize = true;
+            this.lblTotal.Location = new System.Drawing.Point(320, 253);
+            this.lblTotal.Name = "lblTotal";
+            this.lblTotal.Size = new System.Drawing.Size(0, 15);
+            this.lblTotal.TabIndex = 53;
+            // 
+            // btnView
+            // 
+            this.btnView.Location = new System.Drawing.Point(382, 270);
+            this.btnView.Name = "btnView";
+            this.btnView.Size = new System.Drawing.Size(75, 23);
+            this.btnView.TabIndex = 52;
+            this.btnView.Text = "VIEW";
+            this.btnView.UseVisualStyleBackColor = true;
+            this.btnView.Click += new System.EventHandler(this.btnView_Click);
+            // 
+            // btnRefresh
+            // 
+            this.btnRefresh.Location = new System.Drawing.Point(488, 270);
+            this.btnRefresh.Name = "btnRefresh";
+            this.btnRefresh.Size = new System.Drawing.Size(75, 23);
+            this.btnRefresh.TabIndex = 51;
+            this.btnRefresh.Text = "REFRESH";
+            this.btnRefresh.UseVisualStyleBackColor = true;
+            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
+            // 
+            // lbExpenses
+            // 
+            this.lbExpenses.FormattingEnabled = true;
+            this.lbExpenses.ItemHeight = 15;
+            this.lbExpenses.Location = new System.Drawing.Point(353, 66);
+            this.lbExpenses.Name = "lbExpenses";
+            this.lbExpenses.Size = new System.Drawing.Size(261, 184);
+            this.lbExpenses.TabIndex = 50;
+            // 
+            // btnClear
+            // 
+            this.btnClear.Location = new System.Drawing.Point(161, 140);
+            this.btnClear.Name = "btnClear";
+            this.btnClear.Size = new System.Drawing.Size(75, 23);
+            this.btnClear.TabIndex = 49;
+            this.btnClear.Text = "CLEAR";
+            this.btnClear.UseVisualStyleBackColor = true;
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
+            // 
+            // txtExpCost
+            // 
+            this.txtExpCost.Location = new System.Drawing.Point(138, 73);
+            this.txtExpCost.Name = "txtExpCost";
+            this.txtExpCost.Size = new System.Drawing.Size(120, 23);
+            this.txtExpCost.TabIndex = 48;
+            // 
+            // txtExpName
+            // 
+            this.txtExpName.Location = new System.Drawing.Point(138, 22);
+            this.txtExpName.Name = "txtExpName";
+            this.txtExpName.Size = new System.Drawing.Size(120, 23);
+            this.txtExpName.TabIndex = 47;
+            // 
+            // lblExpCost
+            // 
+            this.lblExpCost.AutoSize = true;
+            this.lblExpCost.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point);
+            this.lblExpCost.Location = new System.Drawing.Point(9, 72);
+            this.lblExpCost.Name = "lblExpCost";
+            this.lblExpCost.Size = new System.Drawing.Size(128, 20);
+            this.lblExpCost.TabIndex = 46;
+            this.lblExpCost.Text = "Expense Amount:";
+            // 
+            // lblExpName
+            // 
+            this.lblExpName.AutoSize = true;
+            this.lblExpName.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point);
+            this.lblExpName.Location = new System.Drawing.Point(9, 22);
+            this.lblExpName.Name = "lblExpName";
+            this.lblExpName.Size = new System.Drawing.Size(111, 20);
+            this.lblExpName.TabIndex = 45;
+            this.lblExpName.Text = "Expense name:";
+            // 
+            // btnAdd
+            // 
+            this.btnAdd.Location = new System.Drawing.Point(62, 140);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(75, 23);
+            this.btnAdd.TabIndex = 44;
+            this.btnAdd.Text = "ADD";
+            this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
+            // 
+            // LblExpensesHeader
+            // 
+            this.LblExpensesHeader.AutoSize = true;
+            this.LblExpensesHeader.Font = new System.Drawing.Font("Segoe UI", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point);
+            this.LblExpensesHeader.Location = new System.Drawing.Point(284, 9);
+            this.LblExpensesHeader.Name = "LblExpensesHeader";
+            this.LblExpensesHeader.Size = new System.Drawing.Size(98, 25);
+            this.LblExpensesHeader.TabIndex = 43;
+            this.LblExpensesHeader.Text = "Expenses:";
             // 
             // tpAccom
             // 
@@ -437,7 +538,7 @@ namespace PoeDesign
             this.cbPropType.Items.AddRange(new object[] {
             "Rent",
             "Buy"});
-            this.cbPropType.Location = new System.Drawing.Point(226, 48);
+            this.cbPropType.Location = new System.Drawing.Point(283, 51);
             this.cbPropType.Name = "cbPropType";
             this.cbPropType.Size = new System.Drawing.Size(121, 23);
             this.cbPropType.TabIndex = 7;
@@ -446,10 +547,10 @@ namespace PoeDesign
             // lblPropType
             // 
             this.lblPropType.AutoSize = true;
-            this.lblPropType.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblPropType.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point);
             this.lblPropType.Location = new System.Drawing.Point(135, 51);
             this.lblPropType.Name = "lblPropType";
-            this.lblPropType.Size = new System.Drawing.Size(91, 15);
+            this.lblPropType.Size = new System.Drawing.Size(113, 20);
             this.lblPropType.TabIndex = 6;
             this.lblPropType.Text = "Property Type: ";
             // 
@@ -492,13 +593,13 @@ namespace PoeDesign
             this.btnCalcRent.Name = "btnCalcRent";
             this.btnCalcRent.Size = new System.Drawing.Size(83, 27);
             this.btnCalcRent.TabIndex = 6;
-            this.btnCalcRent.Text = "calculate";
+            this.btnCalcRent.Text = "CALCULATE";
             this.btnCalcRent.UseVisualStyleBackColor = true;
             this.btnCalcRent.Click += new System.EventHandler(this.btnCalcRent_Click);
             // 
             // txtRentAmt
             // 
-            this.txtRentAmt.Location = new System.Drawing.Point(156, 57);
+            this.txtRentAmt.Location = new System.Drawing.Point(226, 57);
             this.txtRentAmt.Name = "txtRentAmt";
             this.txtRentAmt.Size = new System.Drawing.Size(113, 23);
             this.txtRentAmt.TabIndex = 5;
@@ -506,10 +607,10 @@ namespace PoeDesign
             // lblRentAmt
             // 
             this.lblRentAmt.AutoSize = true;
-            this.lblRentAmt.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblRentAmt.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point);
             this.lblRentAmt.Location = new System.Drawing.Point(59, 57);
             this.lblRentAmt.Name = "lblRentAmt";
-            this.lblRentAmt.Size = new System.Drawing.Size(92, 15);
+            this.lblRentAmt.Size = new System.Drawing.Size(113, 20);
             this.lblRentAmt.TabIndex = 4;
             this.lblRentAmt.Text = "Rental amount:";
             // 
@@ -547,15 +648,15 @@ namespace PoeDesign
             this.panel5.Controls.Add(this.lblDeposit);
             this.panel5.Controls.Add(this.lblPurchPrice);
             this.panel5.Controls.Add(this.lblBuyHeader);
-            this.panel5.Location = new System.Drawing.Point(231, 106);
+            this.panel5.Location = new System.Drawing.Point(155, 106);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(541, 214);
+            this.panel5.Size = new System.Drawing.Size(617, 256);
             this.panel5.TabIndex = 2;
             this.panel5.Paint += new System.Windows.Forms.PaintEventHandler(this.panel5_Paint);
             // 
             // btnNAbout
             // 
-            this.btnNAbout.Location = new System.Drawing.Point(193, 177);
+            this.btnNAbout.Location = new System.Drawing.Point(282, 204);
             this.btnNAbout.Name = "btnNAbout";
             this.btnNAbout.Size = new System.Drawing.Size(88, 25);
             this.btnNAbout.TabIndex = 18;
@@ -565,28 +666,28 @@ namespace PoeDesign
             // 
             // txtNumMonths
             // 
-            this.txtNumMonths.Location = new System.Drawing.Point(367, 136);
+            this.txtNumMonths.Location = new System.Drawing.Point(423, 149);
             this.txtNumMonths.Name = "txtNumMonths";
-            this.txtNumMonths.Size = new System.Drawing.Size(100, 23);
+            this.txtNumMonths.Size = new System.Drawing.Size(116, 23);
             this.txtNumMonths.TabIndex = 17;
             // 
             // txtInterest
             // 
-            this.txtInterest.Location = new System.Drawing.Point(234, 110);
+            this.txtInterest.Location = new System.Drawing.Point(423, 120);
             this.txtInterest.Name = "txtInterest";
             this.txtInterest.Size = new System.Drawing.Size(116, 23);
             this.txtInterest.TabIndex = 16;
             // 
             // txtDeposit
             // 
-            this.txtDeposit.Location = new System.Drawing.Point(234, 80);
+            this.txtDeposit.Location = new System.Drawing.Point(423, 91);
             this.txtDeposit.Name = "txtDeposit";
             this.txtDeposit.Size = new System.Drawing.Size(116, 23);
             this.txtDeposit.TabIndex = 15;
             // 
             // txtPurchPrice
             // 
-            this.txtPurchPrice.Location = new System.Drawing.Point(234, 48);
+            this.txtPurchPrice.Location = new System.Drawing.Point(423, 62);
             this.txtPurchPrice.Name = "txtPurchPrice";
             this.txtPurchPrice.Size = new System.Drawing.Size(116, 23);
             this.txtPurchPrice.TabIndex = 14;
@@ -594,40 +695,40 @@ namespace PoeDesign
             // lblNumMonths
             // 
             this.lblNumMonths.AutoSize = true;
-            this.lblNumMonths.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblNumMonths.Location = new System.Drawing.Point(58, 139);
+            this.lblNumMonths.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point);
+            this.lblNumMonths.Location = new System.Drawing.Point(58, 152);
             this.lblNumMonths.Name = "lblNumMonths";
-            this.lblNumMonths.Size = new System.Drawing.Size(294, 15);
+            this.lblNumMonths.Size = new System.Drawing.Size(359, 20);
             this.lblNumMonths.TabIndex = 13;
             this.lblNumMonths.Text = "Number of months to repay(between 240 and 360):";
             // 
             // lblInterest
             // 
             this.lblInterest.AutoSize = true;
-            this.lblInterest.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblInterest.Location = new System.Drawing.Point(58, 110);
+            this.lblInterest.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point);
+            this.lblInterest.Location = new System.Drawing.Point(58, 123);
             this.lblInterest.Name = "lblInterest";
-            this.lblInterest.Size = new System.Drawing.Size(99, 15);
+            this.lblInterest.Size = new System.Drawing.Size(118, 20);
             this.lblInterest.TabIndex = 12;
             this.lblInterest.Text = "Interest rate(%):";
             // 
             // lblDeposit
             // 
             this.lblDeposit.AutoSize = true;
-            this.lblDeposit.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblDeposit.Location = new System.Drawing.Point(58, 80);
+            this.lblDeposit.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point);
+            this.lblDeposit.Location = new System.Drawing.Point(58, 94);
             this.lblDeposit.Name = "lblDeposit";
-            this.lblDeposit.Size = new System.Drawing.Size(101, 15);
+            this.lblDeposit.Size = new System.Drawing.Size(125, 20);
             this.lblDeposit.TabIndex = 11;
             this.lblDeposit.Text = "Total Deposit(%):";
             // 
             // lblPurchPrice
             // 
             this.lblPurchPrice.AutoSize = true;
-            this.lblPurchPrice.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblPurchPrice.Location = new System.Drawing.Point(58, 48);
+            this.lblPurchPrice.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point);
+            this.lblPurchPrice.Location = new System.Drawing.Point(58, 65);
             this.lblPurchPrice.Name = "lblPurchPrice";
-            this.lblPurchPrice.Size = new System.Drawing.Size(161, 15);
+            this.lblPurchPrice.Size = new System.Drawing.Size(199, 20);
             this.lblPurchPrice.TabIndex = 10;
             this.lblPurchPrice.Text = "Purchase price of property: ";
             // 
@@ -635,11 +736,220 @@ namespace PoeDesign
             // 
             this.lblBuyHeader.AutoSize = true;
             this.lblBuyHeader.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point);
-            this.lblBuyHeader.Location = new System.Drawing.Point(216, 13);
+            this.lblBuyHeader.Location = new System.Drawing.Point(282, 11);
             this.lblBuyHeader.Name = "lblBuyHeader";
             this.lblBuyHeader.Size = new System.Drawing.Size(41, 21);
             this.lblBuyHeader.TabIndex = 0;
             this.lblBuyHeader.Text = "Buy:";
+            // 
+            // tpVehicle
+            // 
+            this.tpVehicle.BackColor = System.Drawing.Color.DarkGray;
+            this.tpVehicle.Controls.Add(this.panel4);
+            this.tpVehicle.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point);
+            this.tpVehicle.Location = new System.Drawing.Point(4, 24);
+            this.tpVehicle.Name = "tpVehicle";
+            this.tpVehicle.Size = new System.Drawing.Size(959, 452);
+            this.tpVehicle.TabIndex = 7;
+            this.tpVehicle.Text = "Vehicle";
+            // 
+            // panel4
+            // 
+            this.panel4.BackColor = System.Drawing.Color.IndianRed;
+            this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel4.Controls.Add(this.cbVehicleOption);
+            this.panel4.Controls.Add(this.lblVehicleChoice);
+            this.panel4.Controls.Add(this.lblVehicle);
+            this.panel4.Location = new System.Drawing.Point(161, 75);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(497, 210);
+            this.panel4.TabIndex = 0;
+            // 
+            // cbVehicleOption
+            // 
+            this.cbVehicleOption.FormattingEnabled = true;
+            this.cbVehicleOption.Items.AddRange(new object[] {
+            "No",
+            "Yes"});
+            this.cbVehicleOption.Location = new System.Drawing.Point(302, 94);
+            this.cbVehicleOption.Name = "cbVehicleOption";
+            this.cbVehicleOption.Size = new System.Drawing.Size(121, 29);
+            this.cbVehicleOption.TabIndex = 2;
+            this.cbVehicleOption.SelectedIndexChanged += new System.EventHandler(this.cbVehicleOption_SelectedIndexChanged);
+            // 
+            // lblVehicleChoice
+            // 
+            this.lblVehicleChoice.AutoSize = true;
+            this.lblVehicleChoice.Location = new System.Drawing.Point(46, 94);
+            this.lblVehicleChoice.Name = "lblVehicleChoice";
+            this.lblVehicleChoice.Size = new System.Drawing.Size(240, 21);
+            this.lblVehicleChoice.TabIndex = 1;
+            this.lblVehicleChoice.Text = "Would you like to buy a vehicle:";
+            // 
+            // lblVehicle
+            // 
+            this.lblVehicle.AutoSize = true;
+            this.lblVehicle.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point);
+            this.lblVehicle.Location = new System.Drawing.Point(224, 31);
+            this.lblVehicle.Name = "lblVehicle";
+            this.lblVehicle.Size = new System.Drawing.Size(62, 21);
+            this.lblVehicle.TabIndex = 0;
+            this.lblVehicle.Text = "Vehicle";
+            // 
+            // tpVehicleBuy
+            // 
+            this.tpVehicleBuy.BackColor = System.Drawing.Color.DarkGray;
+            this.tpVehicleBuy.Controls.Add(this.panel6);
+            this.tpVehicleBuy.Location = new System.Drawing.Point(4, 24);
+            this.tpVehicleBuy.Name = "tpVehicleBuy";
+            this.tpVehicleBuy.Size = new System.Drawing.Size(959, 452);
+            this.tpVehicleBuy.TabIndex = 8;
+            this.tpVehicleBuy.Text = "Vehicle Buy";
+            // 
+            // panel6
+            // 
+            this.panel6.BackColor = System.Drawing.Color.IndianRed;
+            this.panel6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel6.Controls.Add(this.txtMake);
+            this.panel6.Controls.Add(this.lblMake);
+            this.panel6.Controls.Add(this.btnVehicleCalc);
+            this.panel6.Controls.Add(this.label12);
+            this.panel6.Controls.Add(this.lblVehiclePerc);
+            this.panel6.Controls.Add(this.lblTotDepV);
+            this.panel6.Controls.Add(this.lblPPrice);
+            this.panel6.Controls.Add(this.lblModel);
+            this.panel6.Controls.Add(this.txtModel);
+            this.panel6.Controls.Add(this.txtEstInsurancePrem);
+            this.panel6.Controls.Add(this.txtCarInterestRate);
+            this.panel6.Controls.Add(this.txtCarTotDep);
+            this.panel6.Controls.Add(this.txtCarPurchPrice);
+            this.panel6.Controls.Add(this.label3);
+            this.panel6.Location = new System.Drawing.Point(215, 17);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(531, 374);
+            this.panel6.TabIndex = 0;
+            // 
+            // txtMake
+            // 
+            this.txtMake.Location = new System.Drawing.Point(322, 108);
+            this.txtMake.Name = "txtMake";
+            this.txtMake.Size = new System.Drawing.Size(119, 23);
+            this.txtMake.TabIndex = 13;
+            // 
+            // lblMake
+            // 
+            this.lblMake.AutoSize = true;
+            this.lblMake.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point);
+            this.lblMake.Location = new System.Drawing.Point(46, 115);
+            this.lblMake.Name = "lblMake";
+            this.lblMake.Size = new System.Drawing.Size(104, 20);
+            this.lblMake.TabIndex = 12;
+            this.lblMake.Text = "Vehicle Make:";
+            // 
+            // btnVehicleCalc
+            // 
+            this.btnVehicleCalc.Location = new System.Drawing.Point(230, 316);
+            this.btnVehicleCalc.Name = "btnVehicleCalc";
+            this.btnVehicleCalc.Size = new System.Drawing.Size(93, 23);
+            this.btnVehicleCalc.TabIndex = 11;
+            this.btnVehicleCalc.Text = "CALCULATE";
+            this.btnVehicleCalc.UseVisualStyleBackColor = true;
+            this.btnVehicleCalc.Click += new System.EventHandler(this.btnVehicleCalc_Click);
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point);
+            this.label12.Location = new System.Drawing.Point(46, 254);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(215, 20);
+            this.label12.TabIndex = 10;
+            this.label12.Text = "Estimated insurance premium:";
+            // 
+            // lblVehiclePerc
+            // 
+            this.lblVehiclePerc.AutoSize = true;
+            this.lblVehiclePerc.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point);
+            this.lblVehiclePerc.Location = new System.Drawing.Point(46, 219);
+            this.lblVehiclePerc.Name = "lblVehiclePerc";
+            this.lblVehiclePerc.Size = new System.Drawing.Size(122, 20);
+            this.lblVehiclePerc.TabIndex = 9;
+            this.lblVehiclePerc.Text = "Interest rate (%):";
+            // 
+            // lblTotDepV
+            // 
+            this.lblTotDepV.AutoSize = true;
+            this.lblTotDepV.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point);
+            this.lblTotDepV.Location = new System.Drawing.Point(46, 183);
+            this.lblTotDepV.Name = "lblTotDepV";
+            this.lblTotDepV.Size = new System.Drawing.Size(100, 20);
+            this.lblTotDepV.TabIndex = 8;
+            this.lblTotDepV.Text = "Total deposit:";
+            // 
+            // lblPPrice
+            // 
+            this.lblPPrice.AutoSize = true;
+            this.lblPPrice.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point);
+            this.lblPPrice.Location = new System.Drawing.Point(46, 145);
+            this.lblPPrice.Name = "lblPPrice";
+            this.lblPPrice.Size = new System.Drawing.Size(113, 20);
+            this.lblPPrice.TabIndex = 7;
+            this.lblPPrice.Text = "Purchase Price:";
+            // 
+            // lblModel
+            // 
+            this.lblModel.AutoSize = true;
+            this.lblModel.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point);
+            this.lblModel.Location = new System.Drawing.Point(46, 83);
+            this.lblModel.Name = "lblModel";
+            this.lblModel.Size = new System.Drawing.Size(110, 20);
+            this.lblModel.TabIndex = 6;
+            this.lblModel.Text = "Vehicle Model:";
+            // 
+            // txtModel
+            // 
+            this.txtModel.Location = new System.Drawing.Point(322, 75);
+            this.txtModel.Name = "txtModel";
+            this.txtModel.Size = new System.Drawing.Size(119, 23);
+            this.txtModel.TabIndex = 5;
+            // 
+            // txtEstInsurancePrem
+            // 
+            this.txtEstInsurancePrem.Location = new System.Drawing.Point(322, 251);
+            this.txtEstInsurancePrem.Name = "txtEstInsurancePrem";
+            this.txtEstInsurancePrem.Size = new System.Drawing.Size(119, 23);
+            this.txtEstInsurancePrem.TabIndex = 4;
+            // 
+            // txtCarInterestRate
+            // 
+            this.txtCarInterestRate.Location = new System.Drawing.Point(322, 211);
+            this.txtCarInterestRate.Name = "txtCarInterestRate";
+            this.txtCarInterestRate.Size = new System.Drawing.Size(119, 23);
+            this.txtCarInterestRate.TabIndex = 3;
+            // 
+            // txtCarTotDep
+            // 
+            this.txtCarTotDep.Location = new System.Drawing.Point(322, 175);
+            this.txtCarTotDep.Name = "txtCarTotDep";
+            this.txtCarTotDep.Size = new System.Drawing.Size(119, 23);
+            this.txtCarTotDep.TabIndex = 2;
+            // 
+            // txtCarPurchPrice
+            // 
+            this.txtCarPurchPrice.Location = new System.Drawing.Point(322, 142);
+            this.txtCarPurchPrice.Name = "txtCarPurchPrice";
+            this.txtCarPurchPrice.Size = new System.Drawing.Size(119, 23);
+            this.txtCarPurchPrice.TabIndex = 1;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point);
+            this.label3.Location = new System.Drawing.Point(230, 29);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(93, 21);
+            this.label3.TabIndex = 0;
+            this.label3.Text = "Vehicle Buy";
             // 
             // mnuMenu
             // 
@@ -657,6 +967,21 @@ namespace PoeDesign
             this.mnuItemExit.Name = "mnuItemExit";
             this.mnuItemExit.Size = new System.Drawing.Size(38, 20);
             this.mnuItemExit.Text = "Exit";
+            // 
+            // panel8
+            // 
+            this.panel8.BackColor = System.Drawing.Color.Salmon;
+            this.panel8.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel8.Controls.Add(this.lblExpName);
+            this.panel8.Controls.Add(this.lblExpCost);
+            this.panel8.Controls.Add(this.txtExpName);
+            this.panel8.Controls.Add(this.txtExpCost);
+            this.panel8.Controls.Add(this.btnAdd);
+            this.panel8.Controls.Add(this.btnClear);
+            this.panel8.Location = new System.Drawing.Point(12, 66);
+            this.panel8.Name = "panel8";
+            this.panel8.Size = new System.Drawing.Size(322, 184);
+            this.panel8.TabIndex = 1;
             // 
             // BudgetApp
             // 
@@ -678,6 +1003,10 @@ namespace PoeDesign
             this.tpFinances.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudExpCount)).EndInit();
+            this.tpExp.ResumeLayout(false);
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.tpAccom.ResumeLayout(false);
             this.panel7.ResumeLayout(false);
             this.panel7.PerformLayout();
@@ -687,8 +1016,16 @@ namespace PoeDesign
             this.tpBuy.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
+            this.tpVehicle.ResumeLayout(false);
+            this.panel4.ResumeLayout(false);
+            this.panel4.PerformLayout();
+            this.tpVehicleBuy.ResumeLayout(false);
+            this.panel6.ResumeLayout(false);
+            this.panel6.PerformLayout();
             this.mnuMenu.ResumeLayout(false);
             this.mnuMenu.PerformLayout();
+            this.panel8.ResumeLayout(false);
+            this.panel8.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -704,20 +1041,8 @@ namespace PoeDesign
         private System.Windows.Forms.TabPage tbRent;
         private System.Windows.Forms.TabPage tpBuy;
         private System.Windows.Forms.Label lblFinanceHeader;
-        private System.Windows.Forms.Button btnSave;
-        private System.Windows.Forms.TextBox txtOther;
-        private System.Windows.Forms.TextBox txtCell;
-        private System.Windows.Forms.TextBox txtTravel;
-        private System.Windows.Forms.TextBox txtWT;
-        private System.Windows.Forms.TextBox txtGroceries;
         private System.Windows.Forms.TextBox txtTax;
         private System.Windows.Forms.TextBox txtIncome;
-        private System.Windows.Forms.Label lblOther;
-        private System.Windows.Forms.Label lblPhone;
-        private System.Windows.Forms.Label lblTravelCosts;
-        private System.Windows.Forms.Label lblWaterAndLights;
-        private System.Windows.Forms.Label lblGroceries;
-        private System.Windows.Forms.Label LblExpensesHeader;
         private System.Windows.Forms.Label lblTax;
         private System.Windows.Forms.Label lblIncome;
         private System.Windows.Forms.TabControl tpHome;
@@ -733,7 +1058,6 @@ namespace PoeDesign
         private System.Windows.Forms.Label lblRentHeader;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Button btnNAbout;
-        private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.TextBox txtInterest;
         private System.Windows.Forms.TextBox txtDeposit;
         private System.Windows.Forms.TextBox txtPurchPrice;
@@ -754,6 +1078,48 @@ namespace PoeDesign
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.MenuStrip mnuMenu;
         private System.Windows.Forms.ToolStripMenuItem mnuItemExit;
+        private System.Windows.Forms.Label lblExpAmt;
+        private System.Windows.Forms.NumericUpDown nudExpCount;
+        private System.Windows.Forms.TabPage tpExp;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.ListBox lbExpenses;
+        private System.Windows.Forms.Button btnClear;
+        private System.Windows.Forms.TextBox txtExpCost;
+        private System.Windows.Forms.TextBox txtExpName;
+        private System.Windows.Forms.Label lblExpCost;
+        private System.Windows.Forms.Label lblExpName;
+        private System.Windows.Forms.Button btnAdd;
+        private System.Windows.Forms.Label LblExpensesHeader;
+        private System.Windows.Forms.Button btnRefresh;
+        private System.Windows.Forms.Button btnViewExpenses;
+        private System.Windows.Forms.Button btnView;
+        private System.Windows.Forms.Label lblTotal;
+        private System.Windows.Forms.Button btnAddFinances;
+        private System.Windows.Forms.Button btnNAcc;
+        private System.Windows.Forms.Button btnBFinances;
+        private System.Windows.Forms.TabPage tpVehicle;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Label lblVehicle;
+        private System.Windows.Forms.ComboBox cbVehicleOption;
+        private System.Windows.Forms.Label lblVehicleChoice;
+        private System.Windows.Forms.TabPage tpVehicleBuy;
+        private System.Windows.Forms.Panel panel6;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label lblVehiclePerc;
+        private System.Windows.Forms.Label lblTotDepV;
+        private System.Windows.Forms.Label lblPPrice;
+        private System.Windows.Forms.Label lblModel;
+        private System.Windows.Forms.TextBox txtModel;
+        private System.Windows.Forms.TextBox txtEstInsurancePrem;
+        private System.Windows.Forms.TextBox txtCarInterestRate;
+        private System.Windows.Forms.TextBox txtCarTotDep;
+        private System.Windows.Forms.TextBox txtCarPurchPrice;
+        private System.Windows.Forms.Button btnVehicleCalc;
+        private System.Windows.Forms.TextBox txtEstInsurance;
+        private System.Windows.Forms.Label lblMake;
+        private System.Windows.Forms.TextBox txtMake;
+        private System.Windows.Forms.Panel panel8;
     }
 }
 

@@ -13,7 +13,6 @@ namespace PoeDesign
     public partial class BudgetApp : Form
     {
         #region main vars
-        private static int numExpenses = 5; //Array size for Expenses
         private static double income;    //Var to store gross monthly income
         private static double tax;       // Var to store monthly tax
         private static double monthlyLoanRepay;  //Var to store returned value of monthly loan repay method
@@ -23,6 +22,8 @@ namespace PoeDesign
         #region initialising objects
         Budget b = new Budget();
         HomeLoan hl = new HomeLoan();
+        ExpenseList<object> el = new ExpenseList<object>();
+        Vehicle car = new Vehicle();
         #endregion
 
         public BudgetApp()
@@ -32,39 +33,7 @@ namespace PoeDesign
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            #region convert text box vars and store in new vars
-            //try-catch for when user enters text/symbols or
-            //leave the text box empty
-            try
-            {
-                income = Convert.ToDouble(txtIncome.Text);
-                double tax = Convert.ToDouble(txtTax.Text);
-                double groceries = Convert.ToDouble(txtGroceries.Text);
-                double waterALights = Convert.ToDouble(txtWT.Text);
-                double travel = Convert.ToDouble(txtTravel.Text);
-                double cell = Convert.ToDouble(txtCell.Text);
-                double other = Convert.ToDouble(txtOther.Text);
-                
-                #region pass vars to set methods from Budget and HomeLoan class
-                b.MonthlyIncome = income;
-                b.MonthlyIncome = tax;
-                hl.setArray(numExpenses);
-                hl.addToArray(groceries, waterALights, travel, cell, other);
-                #endregion
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Please enter the correct value and no text/symbols " + 
-                    "\n or leaving the textbox empty");
-                Application.Exit();
-            }
-            #endregion
-
-
-
-            tpHome.SelectTab(tpAccom); //redirects to Accommodation page
-
-            cbPropType.Focus(); //Place focus on combox box
+           
         }
 
         #region Buttons that redirect to next page
@@ -125,6 +94,8 @@ namespace PoeDesign
                 monthlyLoanRepay = hl.CalcRepayment(Price, period, interest, deposit);
 
                 LoanApproval(monthlyLoanRepay);
+
+                ExpenseReport();
             }
             catch (Exception ex)
             {
@@ -139,10 +110,12 @@ namespace PoeDesign
         #region Method to make the necessary deductions when property is bought
         private void PropBuyDeduction()
         {
-            decimal MoneyLeft;
+            double MoneyLeft;
             double expTot;//total expenses 
-            expTot = hl.getTotal();
-            MoneyLeft = (decimal)((income * tax / 100) - (expTot + monthlyLoanRepay));
+            expTot = el.getTotal();
+            MoneyLeft = ((income * tax / 100) - (expTot + monthlyLoanRepay));
+
+            ExpenseReport();
 
             MessageBox.Show("Money left: R" + MoneyLeft,"Buy Deduction Amount");
         }
@@ -152,12 +125,14 @@ namespace PoeDesign
         private static void LoanApproval(double monthlyPay)
         {
 
-            double thirdIncome = 0.3 * income;
+            double thirdIncome = (3/100) * income;
             if (monthlyPay >= thirdIncome)
             {
+                MessageBox.Show("Home Loan not approved", "Approval");
+                
                 MessageBox.Show("Monthly loan payment is : R" + monthlyPay +
-                    "\nA Third of users income: R" + thirdIncome + 
-                    "\nHome Loan not approved","Approval");
+                    "\nA Third of users income: R" + thirdIncome);
+                
             }
             else
             {
@@ -179,10 +154,12 @@ namespace PoeDesign
         private void btnCalcRent_Click(object sender, EventArgs e)
         {
             rentAmt = Convert.ToDouble(txtRentAmt.Text);
-            decimal MoneyLeft;
+            double MoneyLeft;
             double expTot;//total expenses 
-            expTot = hl.getTotal();
-            MoneyLeft = (decimal)(income - (rentAmt + expTot));
+            expTot = el.getTotal();
+            MoneyLeft = income - (rentAmt + expTot);
+
+            ExpenseReport();
 
             MessageBox.Show("Money left: R" + MoneyLeft,"Rent Deduction Amount");
             Application.Exit(); //Ends the program
@@ -197,6 +174,130 @@ namespace PoeDesign
         private void mnuMenu_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
             Application.Exit(); //Ends the program
+        }
+
+        private void btnRefresh_Click(object sender, EventArgs e)
+        {
+            lbExpenses.Items.Clear();
+        }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            if (el.Push(txtExpName.Text, Convert.ToDecimal(txtExpCost.Text)) == false)
+            {
+                MessageBox.Show("Your Expenses list is full");
+            }
+            ItemsList();
+
+
+            txtExpName.Focus();
+            txtExpName.TabIndex = 0;
+            txtExpCost.TabIndex = 1;
+            btnAdd.TabIndex = 2;
+            btnClear.TabIndex = 3;
+
+        }
+
+        private void ItemsList()
+        {
+            lbExpenses.Items.Clear();
+            string strTemp = String.Format("{0} ,\t{1}", "Expense Name", "Costs");
+            lbExpenses.Items.Add(strTemp);
+            for (int x = 0; x < el.getCounter(); x++)
+            {
+                strTemp = String.Format("{0} ,\t \t R{1}", el.getExpName(x), el.getExpCost(x));
+                lbExpenses.Items.Add(strTemp);
+            }
+            lblTotal.Text = "The total is: " + el.getTotal();
+        }
+
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            txtExpName.Clear();
+            txtExpCost.Clear();
+        }
+
+        private void btnView_Click(object sender, EventArgs e)
+        {
+            ItemsList();
+        }
+
+        private void btnAddFinances_Click(object sender, EventArgs e)
+        {
+            #region convert text box vars and store in new vars
+            //try-catch for when user enters text/symbols or
+            //leave the text box empty
+            try
+            {
+                #region pass vars to set methods from Budget and HomeLoan class
+                b.MonthlyIncome = income;
+                b.MonthlyIncome = tax;
+                el.setExpList(Convert.ToInt32(nudExpCount.Value.ToString()));
+
+                lblTotal.Text = "The total is: " + el.getTotal();
+                txtExpName.Focus();
+                txtExpName.TabIndex = 0;
+                txtExpCost.TabIndex = 1;
+                btnAdd.TabIndex = 2;
+                btnClear.TabIndex = 3;
+                #endregion
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Please enter the correct value and no text/symbols " +
+                    "\n or leaving the textbox empty");
+                Application.Exit();
+            }
+            #endregion
+
+
+
+            tpHome.SelectTab(tpExp); //redirects to Accommodation page
+
+            cbPropType.Focus(); //Place focus on combox box
+        }
+
+        private void btnBFinances_Click(object sender, EventArgs e)
+        {
+            tpHome.SelectTab(tpFinances);
+        }
+
+        private void btnNAcc_Click(object sender, EventArgs e)
+        {
+            tpHome.SelectTab(tpAccom);
+        }
+
+        private void ExpenseReport()
+        {
+            String strDisplay = "";
+            for (int x = 0; x < el.getCounter(); x++)
+            {
+                strDisplay = el.getExpName(x) + "\t\t" + el.getExpCost(x);  
+            }
+            MessageBox.Show(strDisplay);
+        }
+
+        private void btnVehicleCalc_Click(object sender, EventArgs e)
+        {
+            double vehiclePurchase = Convert.ToDouble(txtCarPurchPrice.Text);
+            double vehicleDeposit = Convert.ToDouble(txtCarTotDep.Text);
+            double vehicleRate = Convert.ToDouble(txtCarInterestRate.Text);
+            double vehicleInsurance = Convert.ToDouble(txtEstInsurancePrem.Text);
+            double PERIOD = 5;
+
+            car.dblTotalMonthlyCost(vehiclePurchase, PERIOD, vehicleRate, vehicleDeposit, vehicleInsurance);
+        }
+
+        private void cbVehicleOption_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbVehicleOption.SelectedIndex.Equals(0))
+            {
+
+            }
+            else if(cbVehicleOption.SelectedIndex.Equals(1))
+            {
+                tpHome.SelectTab(tpVehicleBuy);
+            }
         }
     }
 }
