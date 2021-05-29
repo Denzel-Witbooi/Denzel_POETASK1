@@ -7,12 +7,8 @@ namespace PoeDesign
     abstract class Expenses
     {
 
-        #region Display Expenses
-        public abstract string Display();
-        #endregion
-
         #region pushes to the List
-        public abstract bool Push(object Names, object Costs);
+        public abstract bool Push(string Names, double Costs);
         #endregion
 
 

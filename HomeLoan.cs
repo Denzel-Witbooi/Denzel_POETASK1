@@ -7,22 +7,18 @@ namespace PoeDesign
 {
     class HomeLoan
     {
-        private delegate void MentionIncomeLimit(double income);
-        ExpenseList<object> expenses = new ExpenseList<object>();
-        
-
         /*Formula: A = P(1 + in)
          * URL: https://intl.siyavula.com/read/maths/grade-10/finance-and-growth/09-finance-and-growth-03
          * In-text: (Siyavula,2021)
          */
+        private static double monthlyPayment;// monthly payment
+
         #region method to calculate monthly loan repayment
         public double CalcRepayment(double purchasePrice, double period, double interest, double deposit)
         {
             double depAmt = purchasePrice * (deposit / 100); //deposit in cash
-            double monthlyPayment;// monthly payment
             double principalAmt; // principal amount
             double amtPaid; //amount paid
-            expenses.getTotal();
             principalAmt = purchasePrice - depAmt;//New opening balance
             interest = interest / 100;
             period = (period / 12);
@@ -34,6 +30,11 @@ namespace PoeDesign
             return monthlyPayment;
         }
         #endregion
+
+        public double GetMonthlyPay()
+        {
+            return monthlyPayment;
+        }
 
 
         public void PrintReport(double loanAmt, double accLoanAmt, double monthlyRepay)

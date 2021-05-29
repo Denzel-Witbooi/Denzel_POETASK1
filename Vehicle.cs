@@ -19,10 +19,10 @@ namespace PoeDesign
         * URL: https://intl.siyavula.com/read/maths/grade-10/finance-and-growth/09-finance-and-growth-03
         * In-text: (Siyavula,2021)
         */
+       private static double monthlyCarPayment;// monthly payment
         public double dblTotalMonthlyCost(double purchasePrice, double period, double interest, double deposit, double insurance)
         {
             double depAmt = purchasePrice * (deposit / 100); //deposit in cash
-            double monthlyCarPayment;// monthly payment
             double principalAmt; // principal amount
             double amtPaid; //amount paid
 
@@ -39,14 +39,22 @@ namespace PoeDesign
             return monthlyCarPayment;
         }
 
+        public double GetMonthlyCost()
+        {
+            return monthlyCarPayment;
+        }
+
+
         public void Print(double purchasePrice,double interest, double deposit, double insurance, double cost)
         {
-            MessageBox.Show("Purchase Price: R" + purchasePrice + 
+            MessageBox.Show("VEHICLE REPORT \n\n" +
+                "Purchase Price: R" + purchasePrice + 
                 "\nTotal deposit: R" + deposit +
                 " \n Interest Rate: "+ interest +"% " +
                 " \n Estimated Premium: R" + insurance + 
                 "\n Monthly cost: R" + cost);
         }
 
+       
     }
 }

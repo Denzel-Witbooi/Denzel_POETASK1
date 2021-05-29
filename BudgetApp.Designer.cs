@@ -53,18 +53,19 @@ namespace PoeDesign
             this.lblFinanceHeader = new System.Windows.Forms.Label();
             this.tpExp = new System.Windows.Forms.TabPage();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.panel8 = new System.Windows.Forms.Panel();
+            this.lblExpName = new System.Windows.Forms.Label();
+            this.lblExpCost = new System.Windows.Forms.Label();
+            this.txtExpName = new System.Windows.Forms.TextBox();
+            this.txtExpCost = new System.Windows.Forms.TextBox();
+            this.btnAdd = new System.Windows.Forms.Button();
+            this.btnClear = new System.Windows.Forms.Button();
             this.btnNAcc = new System.Windows.Forms.Button();
             this.btnBFinances = new System.Windows.Forms.Button();
             this.lblTotal = new System.Windows.Forms.Label();
             this.btnView = new System.Windows.Forms.Button();
             this.btnRefresh = new System.Windows.Forms.Button();
             this.lbExpenses = new System.Windows.Forms.ListBox();
-            this.btnClear = new System.Windows.Forms.Button();
-            this.txtExpCost = new System.Windows.Forms.TextBox();
-            this.txtExpName = new System.Windows.Forms.TextBox();
-            this.lblExpCost = new System.Windows.Forms.Label();
-            this.lblExpName = new System.Windows.Forms.Label();
-            this.btnAdd = new System.Windows.Forms.Button();
             this.LblExpensesHeader = new System.Windows.Forms.Label();
             this.tpAccom = new System.Windows.Forms.TabPage();
             this.panel7 = new System.Windows.Forms.Panel();
@@ -112,7 +113,8 @@ namespace PoeDesign
             this.label3 = new System.Windows.Forms.Label();
             this.mnuMenu = new System.Windows.Forms.MenuStrip();
             this.mnuItemExit = new System.Windows.Forms.ToolStripMenuItem();
-            this.panel8 = new System.Windows.Forms.Panel();
+            this.lblPeriod = new System.Windows.Forms.Label();
+            this.txtPeriod = new System.Windows.Forms.TextBox();
             this.tpHome.SuspendLayout();
             this.tcHome.SuspendLayout();
             this.tpAbout.SuspendLayout();
@@ -121,6 +123,7 @@ namespace PoeDesign
             ((System.ComponentModel.ISupportInitialize)(this.nudExpCount)).BeginInit();
             this.tpExp.SuspendLayout();
             this.panel2.SuspendLayout();
+            this.panel8.SuspendLayout();
             this.tpAccom.SuspendLayout();
             this.panel7.SuspendLayout();
             this.tpRent.SuspendLayout();
@@ -132,7 +135,6 @@ namespace PoeDesign
             this.tpVehicleBuy.SuspendLayout();
             this.panel6.SuspendLayout();
             this.mnuMenu.SuspendLayout();
-            this.panel8.SuspendLayout();
             this.SuspendLayout();
             // 
             // tpHome
@@ -389,6 +391,75 @@ namespace PoeDesign
             this.panel2.Size = new System.Drawing.Size(651, 383);
             this.panel2.TabIndex = 0;
             // 
+            // panel8
+            // 
+            this.panel8.BackColor = System.Drawing.Color.Salmon;
+            this.panel8.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel8.Controls.Add(this.lblExpName);
+            this.panel8.Controls.Add(this.lblExpCost);
+            this.panel8.Controls.Add(this.txtExpName);
+            this.panel8.Controls.Add(this.txtExpCost);
+            this.panel8.Controls.Add(this.btnAdd);
+            this.panel8.Controls.Add(this.btnClear);
+            this.panel8.Location = new System.Drawing.Point(12, 66);
+            this.panel8.Name = "panel8";
+            this.panel8.Size = new System.Drawing.Size(322, 184);
+            this.panel8.TabIndex = 1;
+            // 
+            // lblExpName
+            // 
+            this.lblExpName.AutoSize = true;
+            this.lblExpName.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point);
+            this.lblExpName.Location = new System.Drawing.Point(9, 22);
+            this.lblExpName.Name = "lblExpName";
+            this.lblExpName.Size = new System.Drawing.Size(111, 20);
+            this.lblExpName.TabIndex = 45;
+            this.lblExpName.Text = "Expense name:";
+            // 
+            // lblExpCost
+            // 
+            this.lblExpCost.AutoSize = true;
+            this.lblExpCost.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point);
+            this.lblExpCost.Location = new System.Drawing.Point(9, 72);
+            this.lblExpCost.Name = "lblExpCost";
+            this.lblExpCost.Size = new System.Drawing.Size(128, 20);
+            this.lblExpCost.TabIndex = 46;
+            this.lblExpCost.Text = "Expense Amount:";
+            // 
+            // txtExpName
+            // 
+            this.txtExpName.Location = new System.Drawing.Point(138, 22);
+            this.txtExpName.Name = "txtExpName";
+            this.txtExpName.Size = new System.Drawing.Size(120, 23);
+            this.txtExpName.TabIndex = 47;
+            // 
+            // txtExpCost
+            // 
+            this.txtExpCost.Location = new System.Drawing.Point(138, 73);
+            this.txtExpCost.Name = "txtExpCost";
+            this.txtExpCost.Size = new System.Drawing.Size(120, 23);
+            this.txtExpCost.TabIndex = 48;
+            // 
+            // btnAdd
+            // 
+            this.btnAdd.Location = new System.Drawing.Point(62, 140);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(75, 23);
+            this.btnAdd.TabIndex = 44;
+            this.btnAdd.Text = "ADD";
+            this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
+            // 
+            // btnClear
+            // 
+            this.btnClear.Location = new System.Drawing.Point(161, 140);
+            this.btnClear.Name = "btnClear";
+            this.btnClear.Size = new System.Drawing.Size(75, 23);
+            this.btnClear.TabIndex = 49;
+            this.btnClear.Text = "CLEAR";
+            this.btnClear.UseVisualStyleBackColor = true;
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
+            // 
             // btnNAcc
             // 
             this.btnNAcc.Location = new System.Drawing.Point(344, 346);
@@ -445,60 +516,6 @@ namespace PoeDesign
             this.lbExpenses.Name = "lbExpenses";
             this.lbExpenses.Size = new System.Drawing.Size(261, 184);
             this.lbExpenses.TabIndex = 50;
-            // 
-            // btnClear
-            // 
-            this.btnClear.Location = new System.Drawing.Point(161, 140);
-            this.btnClear.Name = "btnClear";
-            this.btnClear.Size = new System.Drawing.Size(75, 23);
-            this.btnClear.TabIndex = 49;
-            this.btnClear.Text = "CLEAR";
-            this.btnClear.UseVisualStyleBackColor = true;
-            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
-            // 
-            // txtExpCost
-            // 
-            this.txtExpCost.Location = new System.Drawing.Point(138, 73);
-            this.txtExpCost.Name = "txtExpCost";
-            this.txtExpCost.Size = new System.Drawing.Size(120, 23);
-            this.txtExpCost.TabIndex = 48;
-            // 
-            // txtExpName
-            // 
-            this.txtExpName.Location = new System.Drawing.Point(138, 22);
-            this.txtExpName.Name = "txtExpName";
-            this.txtExpName.Size = new System.Drawing.Size(120, 23);
-            this.txtExpName.TabIndex = 47;
-            // 
-            // lblExpCost
-            // 
-            this.lblExpCost.AutoSize = true;
-            this.lblExpCost.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point);
-            this.lblExpCost.Location = new System.Drawing.Point(9, 72);
-            this.lblExpCost.Name = "lblExpCost";
-            this.lblExpCost.Size = new System.Drawing.Size(128, 20);
-            this.lblExpCost.TabIndex = 46;
-            this.lblExpCost.Text = "Expense Amount:";
-            // 
-            // lblExpName
-            // 
-            this.lblExpName.AutoSize = true;
-            this.lblExpName.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point);
-            this.lblExpName.Location = new System.Drawing.Point(9, 22);
-            this.lblExpName.Name = "lblExpName";
-            this.lblExpName.Size = new System.Drawing.Size(111, 20);
-            this.lblExpName.TabIndex = 45;
-            this.lblExpName.Text = "Expense name:";
-            // 
-            // btnAdd
-            // 
-            this.btnAdd.Location = new System.Drawing.Point(62, 140);
-            this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(75, 23);
-            this.btnAdd.TabIndex = 44;
-            this.btnAdd.Text = "ADD";
-            this.btnAdd.UseVisualStyleBackColor = true;
-            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // LblExpensesHeader
             // 
@@ -810,6 +827,8 @@ namespace PoeDesign
             // 
             this.panel6.BackColor = System.Drawing.Color.IndianRed;
             this.panel6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel6.Controls.Add(this.txtPeriod);
+            this.panel6.Controls.Add(this.lblPeriod);
             this.panel6.Controls.Add(this.txtMake);
             this.panel6.Controls.Add(this.lblMake);
             this.panel6.Controls.Add(this.btnVehicleCalc);
@@ -826,7 +845,7 @@ namespace PoeDesign
             this.panel6.Controls.Add(this.label3);
             this.panel6.Location = new System.Drawing.Point(215, 17);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(531, 374);
+            this.panel6.Size = new System.Drawing.Size(531, 391);
             this.panel6.TabIndex = 0;
             // 
             // txtMake
@@ -848,7 +867,7 @@ namespace PoeDesign
             // 
             // btnVehicleCalc
             // 
-            this.btnVehicleCalc.Location = new System.Drawing.Point(230, 316);
+            this.btnVehicleCalc.Location = new System.Drawing.Point(230, 337);
             this.btnVehicleCalc.Name = "btnVehicleCalc";
             this.btnVehicleCalc.Size = new System.Drawing.Size(93, 23);
             this.btnVehicleCalc.TabIndex = 11;
@@ -860,7 +879,7 @@ namespace PoeDesign
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point);
-            this.label12.Location = new System.Drawing.Point(46, 254);
+            this.label12.Location = new System.Drawing.Point(46, 295);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(215, 20);
             this.label12.TabIndex = 10;
@@ -915,7 +934,7 @@ namespace PoeDesign
             // 
             // txtEstInsurancePrem
             // 
-            this.txtEstInsurancePrem.Location = new System.Drawing.Point(322, 251);
+            this.txtEstInsurancePrem.Location = new System.Drawing.Point(322, 292);
             this.txtEstInsurancePrem.Name = "txtEstInsurancePrem";
             this.txtEstInsurancePrem.Size = new System.Drawing.Size(119, 23);
             this.txtEstInsurancePrem.TabIndex = 4;
@@ -965,23 +984,25 @@ namespace PoeDesign
             // mnuItemExit
             // 
             this.mnuItemExit.Name = "mnuItemExit";
-            this.mnuItemExit.Size = new System.Drawing.Size(38, 20);
+            this.mnuItemExit.Size = new System.Drawing.Size(37, 20);
             this.mnuItemExit.Text = "Exit";
             // 
-            // panel8
+            // lblPeriod
             // 
-            this.panel8.BackColor = System.Drawing.Color.Salmon;
-            this.panel8.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel8.Controls.Add(this.lblExpName);
-            this.panel8.Controls.Add(this.lblExpCost);
-            this.panel8.Controls.Add(this.txtExpName);
-            this.panel8.Controls.Add(this.txtExpCost);
-            this.panel8.Controls.Add(this.btnAdd);
-            this.panel8.Controls.Add(this.btnClear);
-            this.panel8.Location = new System.Drawing.Point(12, 66);
-            this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(322, 184);
-            this.panel8.TabIndex = 1;
+            this.lblPeriod.AutoSize = true;
+            this.lblPeriod.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point);
+            this.lblPeriod.Location = new System.Drawing.Point(46, 259);
+            this.lblPeriod.Name = "lblPeriod";
+            this.lblPeriod.Size = new System.Drawing.Size(91, 20);
+            this.lblPeriod.TabIndex = 14;
+            this.lblPeriod.Text = "Period (yrs):";
+            // 
+            // txtPeriod
+            // 
+            this.txtPeriod.Location = new System.Drawing.Point(322, 255);
+            this.txtPeriod.Name = "txtPeriod";
+            this.txtPeriod.Size = new System.Drawing.Size(119, 23);
+            this.txtPeriod.TabIndex = 15;
             // 
             // BudgetApp
             // 
@@ -1007,6 +1028,8 @@ namespace PoeDesign
             this.tpExp.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            this.panel8.ResumeLayout(false);
+            this.panel8.PerformLayout();
             this.tpAccom.ResumeLayout(false);
             this.panel7.ResumeLayout(false);
             this.panel7.PerformLayout();
@@ -1024,8 +1047,6 @@ namespace PoeDesign
             this.panel6.PerformLayout();
             this.mnuMenu.ResumeLayout(false);
             this.mnuMenu.PerformLayout();
-            this.panel8.ResumeLayout(false);
-            this.panel8.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1120,6 +1141,8 @@ namespace PoeDesign
         private System.Windows.Forms.Label lblMake;
         private System.Windows.Forms.TextBox txtMake;
         private System.Windows.Forms.Panel panel8;
+        private System.Windows.Forms.Label lblPeriod;
+        private System.Windows.Forms.TextBox txtPeriod;
     }
 }
 

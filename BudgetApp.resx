@@ -78,4 +78,7 @@ necessary values in the text boxes
 	-And another Message box will show the available money after necessary deductions
 </value>
   </data>
+  <metadata name="mnuMenu.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
 </root>

@@ -1,13 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Windows.Forms;
+using System.IO;
+
 
 namespace PoeDesign
 {
+   
     class ExpenseList<T>: Expenses
     {
-        private static object[] ExpenseName;
-        private static object[] ExpenseCost;
+        private static string[] ExpenseName;
+        private static double[] ExpenseCost;
         private static int stackPointer = 0;
         private string strDisplay;
         private static int expSize;
@@ -15,8 +19,8 @@ namespace PoeDesign
 
         public void setExpList(int size)
         {
-            ExpenseName = new object[size];
-            ExpenseCost = new object[size];
+            ExpenseName = new string[size];
+            ExpenseCost = new double[size];
             expSize = size;
         }
 
@@ -45,23 +49,14 @@ namespace PoeDesign
          *  Type: WindowsForms (.NetCore)
          *  URL: https://github.com/VCNMB-2021C/CovidForms.git
         */
-        public override string Display()
-        {
-            for (int x = 0; x < stackPointer; x++)
-            {
-                strDisplay += "Expense Name: " + ExpenseName[x] +
-                              "\nCost: R" + ExpenseCost[x] + "\n";
-            }
-            return strDisplay;
-        }
-
-        public override bool Push(object Names, object Costs)
+        public override bool Push(string Names, double Costs)
         {
             if (stackPointer < expSize)
             {
                 ExpenseName[stackPointer] = Names;
                 ExpenseCost[stackPointer] = Costs;
-                Total += Convert.ToDouble(Costs);
+                Total += Costs;
+
                 stackPointer++;
                 return true;
             }
@@ -70,12 +65,11 @@ namespace PoeDesign
                 return false;
             }
         }
-
-        public object getExpName(int x)
+        public string getExpName(int x)
         {
             return ExpenseName[x];
         }
-        public object getExpCost(int x)
+        public double getExpCost(int x)
         {
             return ExpenseCost[x];
         }
@@ -89,8 +83,9 @@ namespace PoeDesign
             return expSize;
         }
         public double getTotal()
-        {
+        {  
             return Total;
         }
-    }
+
+  }
 }
