@@ -50,7 +50,7 @@ namespace PoeDesign
         {
             MessageBox.Show("VEHICLE REPORT \n\n" +
                 "Purchase Price: R" + purchasePrice + 
-                "\nTotal deposit: R" + deposit +
+                "\nTotal deposit: (%)" + deposit +
                 " \n Interest Rate: "+ interest +"% " +
                 " \n Estimated Premium: R" + insurance + 
                 "\n Monthly cost: R" + cost);
