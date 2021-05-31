@@ -31,12 +31,14 @@ namespace PoeDesign
         }
         #endregion
 
+        #region method to get monthly Pay
         public double GetMonthlyPay()
         {
             return monthlyPayment;
         }
+        #endregion
 
-
+        #region Method to print homeloan
         public void PrintReport(double loanAmt, double accLoanAmt, double monthlyRepay)
         {
 
@@ -46,5 +48,6 @@ namespace PoeDesign
                 "\nMonthly Repayments: " + monthlyRepay;
             MessageBox.Show(strDisplay, "Report");
         }
+        #endregion
     }
 }

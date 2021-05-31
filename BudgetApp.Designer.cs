@@ -853,7 +853,7 @@ namespace PoeDesign
             this.txtPeriod.Location = new System.Drawing.Point(322, 255);
             this.txtPeriod.Name = "txtPeriod";
             this.txtPeriod.Size = new System.Drawing.Size(119, 23);
-            this.txtPeriod.TabIndex = 15;
+            this.txtPeriod.TabIndex = 5;
             // 
             // lblPeriod
             // 
@@ -870,7 +870,7 @@ namespace PoeDesign
             this.txtMake.Location = new System.Drawing.Point(322, 108);
             this.txtMake.Name = "txtMake";
             this.txtMake.Size = new System.Drawing.Size(119, 23);
-            this.txtMake.TabIndex = 13;
+            this.txtMake.TabIndex = 1;
             // 
             // lblMake
             // 
@@ -887,7 +887,7 @@ namespace PoeDesign
             this.btnVehicleCalc.Location = new System.Drawing.Point(230, 337);
             this.btnVehicleCalc.Name = "btnVehicleCalc";
             this.btnVehicleCalc.Size = new System.Drawing.Size(93, 23);
-            this.btnVehicleCalc.TabIndex = 11;
+            this.btnVehicleCalc.TabIndex = 7;
             this.btnVehicleCalc.Text = "CALCULATE";
             this.btnVehicleCalc.UseVisualStyleBackColor = true;
             this.btnVehicleCalc.Click += new System.EventHandler(this.btnVehicleCalc_Click);
@@ -947,35 +947,35 @@ namespace PoeDesign
             this.txtModel.Location = new System.Drawing.Point(322, 75);
             this.txtModel.Name = "txtModel";
             this.txtModel.Size = new System.Drawing.Size(119, 23);
-            this.txtModel.TabIndex = 5;
+            this.txtModel.TabIndex = 0;
             // 
             // txtEstInsurancePrem
             // 
             this.txtEstInsurancePrem.Location = new System.Drawing.Point(322, 292);
             this.txtEstInsurancePrem.Name = "txtEstInsurancePrem";
             this.txtEstInsurancePrem.Size = new System.Drawing.Size(119, 23);
-            this.txtEstInsurancePrem.TabIndex = 4;
+            this.txtEstInsurancePrem.TabIndex = 6;
             // 
             // txtCarInterestRate
             // 
             this.txtCarInterestRate.Location = new System.Drawing.Point(322, 211);
             this.txtCarInterestRate.Name = "txtCarInterestRate";
             this.txtCarInterestRate.Size = new System.Drawing.Size(119, 23);
-            this.txtCarInterestRate.TabIndex = 3;
+            this.txtCarInterestRate.TabIndex = 4;
             // 
             // txtCarTotDep
             // 
             this.txtCarTotDep.Location = new System.Drawing.Point(322, 175);
             this.txtCarTotDep.Name = "txtCarTotDep";
             this.txtCarTotDep.Size = new System.Drawing.Size(119, 23);
-            this.txtCarTotDep.TabIndex = 2;
+            this.txtCarTotDep.TabIndex = 3;
             // 
             // txtCarPurchPrice
             // 
             this.txtCarPurchPrice.Location = new System.Drawing.Point(322, 142);
             this.txtCarPurchPrice.Name = "txtCarPurchPrice";
             this.txtCarPurchPrice.Size = new System.Drawing.Size(119, 23);
-            this.txtCarPurchPrice.TabIndex = 1;
+            this.txtCarPurchPrice.TabIndex = 2;
             // 
             // label3
             // 

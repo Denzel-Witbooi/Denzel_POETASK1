@@ -15,8 +15,8 @@ namespace PoeDesign
     public partial class BudgetApp : Form
 
     {
-        public delegate void MentionLimit(double total);
-        private string path = System.IO.Path.GetFullPath(@"..\..\..\") + "Expenses.txt";
+        public delegate void MentionLimit(double total); // delegate to mention limit
+        private string path = System.IO.Path.GetFullPath(@"..\..\..\") + "Expenses.txt"; //File path
         #region main vars
         private static double income;    //Var to store gross monthly income
         private static double tax;       // Var to store monthly tax
@@ -363,6 +363,7 @@ namespace PoeDesign
 
         private void btnVehicleCalc_Click(object sender, EventArgs e)
         {
+            #region try-catch for vehicle tab
             try
             {
                 if (txtCarPurchPrice.Text != null && txtCarTotDep.Text != null &&
@@ -377,6 +378,7 @@ namespace PoeDesign
                     double PERIOD = Convert.ToDouble(txtPeriod.Text);
                     #endregion
 
+
                     car.dblTotalMonthlyCost(vehiclePurchase, PERIOD, vehicleRate, vehicleDeposit, vehicleInsurance);
                     GenerateLimit(ExpLimitAlert);//Alert user when expenses < 
                     ExpenseReport();
@@ -385,13 +387,18 @@ namespace PoeDesign
             catch(Exception err)
             {
                 MessageBox.Show(err.ToString());
-            } 
+            }
+            #endregion
 
         }
+        #region method to alert user when expense > income*0.75 
         private static void ExpLimitAlert(double expTotal)
         {
             MessageBox.Show("Your expenses have exceeded your income by 75%");
         }
+        #endregion
+
+        #region Method takes in a delegate check if expense > income + propBuy + carPay* 0.75
         public double GenerateLimit(MentionLimit mentionLimit)
         {
             double totExp = el.getTotal();
@@ -404,6 +411,8 @@ namespace PoeDesign
             }
             return totExp;
         }
+        #endregion
+
         #region Add Items from Finances tab
         private void AddFinances()
         {

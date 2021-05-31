@@ -28,7 +28,7 @@ namespace PoeDesign
             double amtPaid; //amount paid
 
             principalAmt = purchasePrice - depAmt;//New opening balance
-            interest = interest / 100;
+            interest = interest / 100;                                                             
             period = (period / 12);
 
             //Simple interest formula
