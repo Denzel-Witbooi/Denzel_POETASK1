@@ -97,6 +97,8 @@ namespace PoeDesign
             this.lblVehicle = new System.Windows.Forms.Label();
             this.tpVehicleBuy = new System.Windows.Forms.TabPage();
             this.panel6 = new System.Windows.Forms.Panel();
+            this.txtPeriod = new System.Windows.Forms.TextBox();
+            this.lblPeriod = new System.Windows.Forms.Label();
             this.txtMake = new System.Windows.Forms.TextBox();
             this.lblMake = new System.Windows.Forms.Label();
             this.btnVehicleCalc = new System.Windows.Forms.Button();
@@ -113,8 +115,6 @@ namespace PoeDesign
             this.label3 = new System.Windows.Forms.Label();
             this.mnuMenu = new System.Windows.Forms.MenuStrip();
             this.mnuItemExit = new System.Windows.Forms.ToolStripMenuItem();
-            this.lblPeriod = new System.Windows.Forms.Label();
-            this.txtPeriod = new System.Windows.Forms.TextBox();
             this.tpHome.SuspendLayout();
             this.tcHome.SuspendLayout();
             this.tpAbout.SuspendLayout();
@@ -848,6 +848,23 @@ namespace PoeDesign
             this.panel6.Size = new System.Drawing.Size(531, 391);
             this.panel6.TabIndex = 0;
             // 
+            // txtPeriod
+            // 
+            this.txtPeriod.Location = new System.Drawing.Point(322, 255);
+            this.txtPeriod.Name = "txtPeriod";
+            this.txtPeriod.Size = new System.Drawing.Size(119, 23);
+            this.txtPeriod.TabIndex = 15;
+            // 
+            // lblPeriod
+            // 
+            this.lblPeriod.AutoSize = true;
+            this.lblPeriod.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point);
+            this.lblPeriod.Location = new System.Drawing.Point(46, 259);
+            this.lblPeriod.Name = "lblPeriod";
+            this.lblPeriod.Size = new System.Drawing.Size(91, 20);
+            this.lblPeriod.TabIndex = 14;
+            this.lblPeriod.Text = "Period (yrs):";
+            // 
             // txtMake
             // 
             this.txtMake.Location = new System.Drawing.Point(322, 108);
@@ -901,9 +918,9 @@ namespace PoeDesign
             this.lblTotDepV.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point);
             this.lblTotDepV.Location = new System.Drawing.Point(46, 183);
             this.lblTotDepV.Name = "lblTotDepV";
-            this.lblTotDepV.Size = new System.Drawing.Size(100, 20);
+            this.lblTotDepV.Size = new System.Drawing.Size(127, 20);
             this.lblTotDepV.TabIndex = 8;
-            this.lblTotDepV.Text = "Total deposit:";
+            this.lblTotDepV.Text = "Total deposit: (%)";
             // 
             // lblPPrice
             // 
@@ -986,23 +1003,6 @@ namespace PoeDesign
             this.mnuItemExit.Name = "mnuItemExit";
             this.mnuItemExit.Size = new System.Drawing.Size(37, 20);
             this.mnuItemExit.Text = "Exit";
-            // 
-            // lblPeriod
-            // 
-            this.lblPeriod.AutoSize = true;
-            this.lblPeriod.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point);
-            this.lblPeriod.Location = new System.Drawing.Point(46, 259);
-            this.lblPeriod.Name = "lblPeriod";
-            this.lblPeriod.Size = new System.Drawing.Size(91, 20);
-            this.lblPeriod.TabIndex = 14;
-            this.lblPeriod.Text = "Period (yrs):";
-            // 
-            // txtPeriod
-            // 
-            this.txtPeriod.Location = new System.Drawing.Point(322, 255);
-            this.txtPeriod.Name = "txtPeriod";
-            this.txtPeriod.Size = new System.Drawing.Size(119, 23);
-            this.txtPeriod.TabIndex = 15;
             // 
             // BudgetApp
             // 
