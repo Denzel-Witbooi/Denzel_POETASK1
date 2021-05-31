@@ -231,23 +231,11 @@ namespace PoeDesign
             {
                 strTemp = String.Format("{0} ,\t \t R{1}", el.getExpName(x), el.getExpCost(x));
                 lbExpenses.Items.Add(strTemp);
-                saveFile(el.getExpName(x),el.getExpCost(x));
             }
             lblTotal.Text = "The total is: " + el.getTotal();
         }
         #endregion
-         
-        public void saveFile(string expName, double expCost)
-        {
-            string Msg = expName + "," + expCost;
-            //Save File to .txt
-            FileStream fParameter = new FileStream(dirParameter, FileMode.Create, FileAccess.Write);
-            StreamWriter m_WriterParameter = new StreamWriter(fParameter);
-            m_WriterParameter.BaseStream.Seek(0, SeekOrigin.End);
-            m_WriterParameter.WriteLine(Msg);
-            m_WriterParameter.Close();
 
-        }
         private void btnClear_Click(object sender, EventArgs e)
         {
             txtExpName.Clear();
@@ -256,7 +244,24 @@ namespace PoeDesign
 
         private void btnView_Click(object sender, EventArgs e)
         {
-            ItemsList();
+            OpenFileDialog f = new OpenFileDialog();
+            if (f.ShowDialog() == DialogResult.OK)
+            {
+                lbExpenses.Items.Clear();
+
+                List<string> lines = new List<string>();
+                using (StreamReader r = new StreamReader(f.OpenFile()))
+                {
+                    string line;
+                    while ((line = r.ReadLine()) != null)
+                    {
+                        lbExpenses.Items.Add(line);
+
+                    }
+                }
+            }
+            // lbExpenses.Items.Add(el.read());
+            //ItemsList();
         }
 
       

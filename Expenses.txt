@@ -1,1 +1,15 @@
 
+Wifi
+250
+Airtime
+90
+Petrol
+360
+Water
+1500
+Water
+1400
+Electricity
+1800
+Airtime
+150
