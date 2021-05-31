@@ -110,12 +110,12 @@ namespace PoeDesign
 
                     LoanApproval(monthlyLoanRepay);
                 }
+                
           
             }
             catch (Exception ex)                                    
             {
-                MessageBox.Show(ex.ToString()
-                    );
+                MessageBox.Show(ex.ToString());
             }
             #endregion
             tpHome.SelectTab(tpVehicle); //redirects to Vehicle Option page
@@ -130,11 +130,9 @@ namespace PoeDesign
             double MoneyLeft;
             double expTot;//total expenses 
             expTot = el.getTotal();
-            //b.MonthlyIncome = income;
-            income = Convert.ToDouble(txtIncome.Text);
-            MoneyLeft = ((income * tax / 100) - (expTot + monthlyLoanRepay));
+            MoneyLeft = ((b.MonthlyIncome * tax / 100) - (expTot + monthlyLoanRepay));
 
-            ExpenseReport();
+            el.PrintSort();
 
             MessageBox.Show("Money left: R" + MoneyLeft,"Buy Deduction Amount");
 
@@ -144,11 +142,8 @@ namespace PoeDesign
         #region Method to check if Loan is Approved
         private void LoanApproval(double monthlyPay)
         {
-
-           // b.MonthlyIncome = income;
-            income = Convert.ToDouble(txtIncome.Text);
-
-            double thirdIncome = (3/100) * income;
+            MessageBox.Show("Checking Loan status....");
+            double thirdIncome = (3/100) * b.MonthlyIncome;
             if (monthlyPay >= thirdIncome)
             {
                 MessageBox.Show("Home Loan not approved", "Approval");
@@ -163,8 +158,6 @@ namespace PoeDesign
             }
             BudgetApp ba = new BudgetApp();
             ba.PropBuyDeduction();
-
-            Application.Exit();  //Ends the program
         }
         #endregion
 
@@ -179,9 +172,9 @@ namespace PoeDesign
             double MoneyLeft;
             double expTot;//total expenses 
             expTot = el.getTotal();
-            MoneyLeft = income - (rentAmt + expTot);
+            MoneyLeft = b.MonthlyIncome - (rentAmt + expTot);
 
-            ExpenseReport();
+            el.PrintSort();
 
             MessageBox.Show("Money left: R" + MoneyLeft,"Rent Deduction Amount");
 
@@ -247,6 +240,7 @@ namespace PoeDesign
             read();
         }
 
+        #region method to read from textfile to list box
         /*
 * Author: Reece Wanvig
 * Date: 5 May 2021
@@ -309,7 +303,7 @@ namespace PoeDesign
 *  Type: WindowsForms (.NetCore)
 *  URL: https://github.com/VCNMB-2021C/TextFilesGenericClasses.git
 */
-        #region method to read from textfile to list box
+
         public void read()
         {
             lbExpenses.Items.Clear();
@@ -381,7 +375,7 @@ namespace PoeDesign
 
                     car.dblTotalMonthlyCost(vehiclePurchase, PERIOD, vehicleRate, vehicleDeposit, vehicleInsurance);
                     GenerateLimit(ExpLimitAlert);//Alert user when expenses < 
-                    ExpenseReport();
+                    el.PrintSort();
                 }
             }
             catch(Exception err)
@@ -463,7 +457,7 @@ namespace PoeDesign
         {
             if (cbVehicleOption.SelectedIndex.Equals(0))
             {
-                ExpenseReport();
+                el.PrintSort();
                 Application.Exit();
             }
             else if(cbVehicleOption.SelectedIndex.Equals(1))

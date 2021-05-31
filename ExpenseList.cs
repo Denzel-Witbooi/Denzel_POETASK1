@@ -10,21 +10,30 @@ namespace PoeDesign
    
     class ExpenseList<T>: Expenses
     {
+        #region var for text file path
         private string path = System.IO.Path.GetFullPath(@"..\..\..\") + "Expenses.txt";
+        #endregion
+        #region vars for expense name and cost
         private static string[] ExpenseName;
         private static double[] ExpenseCost;
+        #endregion
+
+        #region vars for total, array amount and counter
         private static int stackPointer = 0;
-        private string strDisplay;
         private static int expSize;
         private static double Total = 0;
-        private string Display;
+        #endregion
+
+        #region method to set array size
         public void setExpList(int size)
         {
             ExpenseName = new string[size];
             ExpenseCost = new double[size];
             expSize = size;
         }
+        #endregion
 
+        #region method to add to the array while values not null/array full
         /*
          * Author: Reece Wanvig
          * Date: 23 March 2021
@@ -58,6 +67,7 @@ namespace PoeDesign
                 ExpenseCost[stackPointer] = Costs;
                 Total += Costs;
                 save();
+                SortExpenses();
                 stackPointer++; //incrementing stackpointer
                 return true;
             }
@@ -67,7 +77,9 @@ namespace PoeDesign
             }
 
         }
+        #endregion
 
+        #region method save the values in each array into a text file
         /*
 * Author: Reece Wanvig
 * Date: 5 May 2021
@@ -148,7 +160,9 @@ namespace PoeDesign
                 MessageBox.Show("An error occurred " + err.ToString());
             }
         }
- 
+        #endregion
+
+        #region getters for both arrays
         public string getExpName(int x)
         {
             return ExpenseName[x];
@@ -157,7 +171,9 @@ namespace PoeDesign
         {
             return ExpenseCost[x];
         }
+        #endregion
 
+        #region methods for the counter and array size and total cost expenses
         public int getCounter()
         {
             return stackPointer;
@@ -170,6 +186,49 @@ namespace PoeDesign
         {  
             return Total;
         }
+        #endregion
 
-  }
+        #region method to sort expenses in descending according to cost
+        /*
+        * Author: deathismyfriend
+        * URL: https://stackoverflow.com/users/2860193/deathismyfriend
+        * 
+        * code version: 
+        *       public void Print()
+                {
+                    Array.Sort(nScore, nPlayer);
+                    Array.Reverse(nScore);
+                    Array.Reverse(nPlayer);
+                    PrintKeysAndValues(nPlayer, nScore);
+                }
+        Type: c# (console)
+        * URL for Question: 
+        * https://stackoverflow.com/questions/30967867/sort-2-arrays-in-reverse-in-c-sharp
+        */
+        public void SortExpenses()
+        {
+            //Sorts array based on expense cost. 
+            //Then reverses both arrays to keep data in line
+            Array.Sort(ExpenseCost, ExpenseName); 
+            Array.Reverse(ExpenseCost);
+            Array.Reverse(ExpenseName);
+        }
+
+        public void PrintSort()
+        {
+            string strDisplay = "";
+            strDisplay += "Expense List \n";
+            strDisplay += "*****************************\n";
+            strDisplay += "Expense Name \t Cost\n";
+
+            for (int i = 0; i < ExpenseCost.Length; i++)
+            {
+                strDisplay += ExpenseName[i] + "\t \tR" + ExpenseCost[i] + "\n";
+            }
+            MessageBox.Show(strDisplay);
+        }
+
+        #endregion
+
+    }
 }

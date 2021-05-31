@@ -59,9 +59,12 @@
   </resheader>
   <data name="label2.Text" xml:space="preserve">
     <value>-On the finances page you will have to enter the
-necessary values in the text boxes
+necessary values and enter amount of expenses
 -Then click on the save button
--Which redirects you to the accommodation page
+-Which redirects you to the expenses page
+-Where your enter your expenses and they
+- Get displayed on the right in a list box
+ Then enter next to go to accommodation page
 -Choose between your type of accommodation
 1).If you chose to rent a property you'll be directed to the Rent page
 	-Enter your rental amount
@@ -76,7 +79,9 @@ necessary values in the text boxes
 	-Then click on the calculate button 
 	-Message box will show if your home loan is approved or not 
 	-And another Message box will show the available money after necessary deductions
-</value>
+3) Choose to Buy a Vehicle
+if yes redirects to Vehicle Buy page where you enter the necessary values
+if no shows expenses and ends program</value>
   </data>
   <metadata name="mnuMenu.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
