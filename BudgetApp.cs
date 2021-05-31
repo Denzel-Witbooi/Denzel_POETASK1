@@ -16,7 +16,7 @@ namespace PoeDesign
 
     {
         public delegate void MentionLimit(double total);
-        public static string dirParameter = AppDomain.CurrentDomain.BaseDirectory + @"\Expenses.txt";
+        private string path = System.IO.Path.GetFullPath(@"..\..\..\") + "Expenses.txt";
         #region main vars
         private static double income;    //Var to store gross monthly income
         private static double tax;       // Var to store monthly tax
@@ -235,7 +235,7 @@ namespace PoeDesign
             lblTotal.Text = "The total is: " + el.getTotal();
         }
         #endregion
-
+       
         private void btnClear_Click(object sender, EventArgs e)
         {
             txtExpName.Clear();
@@ -244,27 +244,112 @@ namespace PoeDesign
 
         private void btnView_Click(object sender, EventArgs e)
         {
-            OpenFileDialog f = new OpenFileDialog();
-            if (f.ShowDialog() == DialogResult.OK)
-            {
-                lbExpenses.Items.Clear();
-
-                List<string> lines = new List<string>();
-                using (StreamReader r = new StreamReader(f.OpenFile()))
-                {
-                    string line;
-                    while ((line = r.ReadLine()) != null)
-                    {
-                        lbExpenses.Items.Add(line);
-
-                    }
-                }
-            }
-            // lbExpenses.Items.Add(el.read());
-            //ItemsList();
+            read();
         }
 
-      
+        /*
+* Author: Reece Wanvig
+* Date: 5 May 2021
+* Title of Source code: Read values to text file
+* Code version:
+*   public string read()
+        {
+            if (!File.Exists(path))
+            {
+                using (StreamWriter sw = File.CreateText(path))
+                {
+                    sw.WriteLine("18017262");//adding values 
+                    sw.WriteLine(99);
+                    sw.WriteLine(70);
+                    sw.WriteLine(98);
+                    sw.WriteLine(100);
+
+                    sw.WriteLine("18000612");//adding values 
+                    sw.WriteLine(99);
+                    sw.WriteLine(70);
+                    sw.WriteLine(98);
+                    sw.WriteLine(100);
+                    sw.Close();//closeing the text file
+                }
+            }
+            Display = "";
+
+            try
+            {
+                StreamReader sr = new StreamReader(path, true);
+                for (int x =0;x!= File.ReadLines(path).Count()/5;x++)
+                {
+                    StudentID[x] = sr.ReadLine();//reading from the text file 
+                    Test[x] = sr.ReadLine();
+                    Assignment[x] = sr.ReadLine();
+                    ICE[x] = sr.ReadLine();
+                    Exam[x] = sr.ReadLine();
+
+                    Display += "ID - " + StudentID[x] + "\n";
+                    //printing with the generic class 
+                    Display += "Test - " + Test[x] + "\n";
+                    Display += "Assignment - " + Assignment[x] + "\n";
+                    Display += "ICE - " + ICE[x] + "\n";
+                    Display += "Exam - " + Exam[x] + "\n";
+                    Display += "Final - " + ((Convert.ToDouble(Test[x]) * 0.25) +
+                        (Convert.ToDouble(Assignment[x]) * 0.35) +
+                        (Convert.ToDouble(ICE[x]) * 0.10) +
+                        (Convert.ToDouble(Exam[x]) * 0.30)) + "\n\n";
+                    //work out the final mark
+                }
+                sr.Close();
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("An error ocured " + ex.ToString());
+            }
+            return Display;
+        }
+    } 
+*  Type: WindowsForms (.NetCore)
+*  URL: https://github.com/VCNMB-2021C/TextFilesGenericClasses.git
+*/
+        #region method to read from textfile to list box
+        public void read()
+        {
+            lbExpenses.Items.Clear();
+            string strTemp = String.Format("{0} ,\t{1}", "Expense Name", "Costs");
+            lbExpenses.Items.Add(strTemp);
+
+            if (!File.Exists(path))
+            {
+                using (StreamWriter sw = File.CreateText(path))
+                {
+                    strTemp = String.Format("{0} ,\t \t R{1}", "Exp", 2000);
+
+                    lbExpenses.Items.Add(strTemp);
+                    lblTotal.Text = "The total is: " + 2000;
+                }
+            }
+            try
+            {
+                StreamReader sr = new StreamReader(path, true);
+                for (int x = 0; x != File.ReadLines(path).Count() / 2; x++)
+                {
+                    string expn = el.getExpName(x);
+                    double expc = el.getExpCost(x);
+                    expn = sr.ReadLine(); // reading from text file
+                    expc = Convert.ToDouble(sr.ReadLine());
+
+                    strTemp = String.Format("{0} ,\t \t R{1}", expn, expc);
+                    lbExpenses.Items.Add(strTemp);
+                }
+                lblTotal.Text = "The total is: " + el.getTotal();
+                sr.Close();
+            }
+            catch (Exception err)
+            {
+
+                MessageBox.Show("An error occurred " + err.ToString());
+            }
+        }
+        #endregion
+
 
         private void btnBFinances_Click(object sender, EventArgs e)
         {

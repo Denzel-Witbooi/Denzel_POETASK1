@@ -7,19 +7,20 @@ namespace PoeDesign
 {
     class Vehicle
     {
+        #region vars for vechicle for task 3
         public string strModel { get; set; }
         public string strMake { get; set; }
         public double decPurchPrice { get; set; }
         public double decTotDep { get; set; }
         public double decIntRate { get; set; }
         public double decInsurancePrem { get; set; }
+        #endregion
 
-
-       /*Formula: A = P(1 + in)
-        * URL: https://intl.siyavula.com/read/maths/grade-10/finance-and-growth/09-finance-and-growth-03
-        * In-text: (Siyavula,2021)
-        */
-       private static double monthlyCarPayment;// monthly payment
+        /*Formula: A = P(1 + in)
+         * URL: https://intl.siyavula.com/read/maths/grade-10/finance-and-growth/09-finance-and-growth-03
+         * In-text: (Siyavula,2021)
+         */
+        private static double monthlyCarPayment;// monthly payment
         public double dblTotalMonthlyCost(double purchasePrice, double period, double interest, double deposit, double insurance)
         {
             double depAmt = purchasePrice * (deposit / 100); //deposit in cash
