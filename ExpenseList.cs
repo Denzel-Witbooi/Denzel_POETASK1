@@ -16,7 +16,6 @@ namespace PoeDesign
         private string strDisplay;
         private static int expSize;
         private static double Total = 0;
-
         public void setExpList(int size)
         {
             ExpenseName = new string[size];
@@ -56,10 +55,10 @@ namespace PoeDesign
                 ExpenseName[stackPointer] = Names;
                 ExpenseCost[stackPointer] = Costs;
                 Total += Costs;
-
                 stackPointer++;
                 return true;
             }
+
             else
             {
                 return false;

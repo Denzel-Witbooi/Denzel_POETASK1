@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,6 +16,7 @@ namespace PoeDesign
 
     {
         public delegate void MentionLimit(double total);
+        public static string dirParameter = AppDomain.CurrentDomain.BaseDirectory + @"\Expenses.txt";
         #region main vars
         private static double income;    //Var to store gross monthly income
         private static double tax;       // Var to store monthly tax
@@ -95,20 +97,25 @@ namespace PoeDesign
             #region try-catch when user enters no values/incorrect format
             try
             {
-                double Price = Convert.ToDouble(txtPurchPrice.Text);
-                double deposit = Convert.ToDouble(txtDeposit.Text);
-                double interest = Convert.ToDouble(txtInterest.Text);
-                double period = Convert.ToDouble(txtNumMonths.Text);
+                if (txtPurchPrice.Text != null && txtDeposit.Text != null  
+                    && txtInterest.Text != null && txtNumMonths.Text != null)
+                {
+                    #region convert Prop buy text boxes to double
+                    double Price = Convert.ToDouble(txtPurchPrice.Text);
+                    double deposit = Convert.ToDouble(txtDeposit.Text);
+                    double interest = Convert.ToDouble(txtInterest.Text);
+                    double period = Convert.ToDouble(txtNumMonths.Text);
+                    #endregion
+                    monthlyLoanRepay = hl.CalcRepayment(Price, period, interest, deposit);
 
-                monthlyLoanRepay = hl.CalcRepayment(Price, period, interest, deposit);
-
-                LoanApproval(monthlyLoanRepay);
-
+                    LoanApproval(monthlyLoanRepay);
+                }
+          
             }
-            catch (Exception ex)
+            catch (Exception ex)                                    
             {
-                MessageBox.Show("Please enter the correct value and no text/symbols " +
-                     "\n or leaving the textbox empty");
+                MessageBox.Show(ex.ToString()
+                    );
             }
             #endregion
             tpHome.SelectTab(tpVehicle); //redirects to Vehicle Option page
@@ -205,15 +212,16 @@ namespace PoeDesign
             }
             ItemsList();
 
-
+            #region tab position expense page/tab
             txtExpName.Focus();
             txtExpName.TabIndex = 0;
             txtExpCost.TabIndex = 1;
             btnAdd.TabIndex = 2;
             btnClear.TabIndex = 3;
-
+            #endregion
         }
 
+        #region Method To Add expenses to ListBox
         private void ItemsList()
         {
             lbExpenses.Items.Clear();
@@ -223,10 +231,23 @@ namespace PoeDesign
             {
                 strTemp = String.Format("{0} ,\t \t R{1}", el.getExpName(x), el.getExpCost(x));
                 lbExpenses.Items.Add(strTemp);
+                saveFile(el.getExpName(x),el.getExpCost(x));
             }
             lblTotal.Text = "The total is: " + el.getTotal();
         }
+        #endregion
+         
+        public void saveFile(string expName, double expCost)
+        {
+            string Msg = expName + "," + expCost;
+            //Save File to .txt
+            FileStream fParameter = new FileStream(dirParameter, FileMode.Create, FileAccess.Write);
+            StreamWriter m_WriterParameter = new StreamWriter(fParameter);
+            m_WriterParameter.BaseStream.Seek(0, SeekOrigin.End);
+            m_WriterParameter.WriteLine(Msg);
+            m_WriterParameter.Close();
 
+        }
         private void btnClear_Click(object sender, EventArgs e)
         {
             txtExpName.Clear();
@@ -252,15 +273,30 @@ namespace PoeDesign
 
         private void btnVehicleCalc_Click(object sender, EventArgs e)
         {
-            double vehiclePurchase = Convert.ToDouble(txtCarPurchPrice.Text);
-            double vehicleDeposit = Convert.ToDouble(txtCarTotDep.Text);
-            double vehicleRate = Convert.ToDouble(txtCarInterestRate.Text);
-            double vehicleInsurance = Convert.ToDouble(txtEstInsurancePrem.Text);
-            double PERIOD = Convert.ToDouble(txtPeriod.Text); ;
+            try
+            {
+                if (txtCarPurchPrice.Text != null && txtCarTotDep.Text != null &&
+                    txtCarInterestRate.Text != null && txtEstInsurancePrem.Text != null 
+                    && txtPeriod.Text != null)
+                {
+                    #region convert text boxes to double
+                    double vehiclePurchase = Convert.ToDouble(txtCarPurchPrice.Text);
+                    double vehicleDeposit = Convert.ToDouble(txtCarTotDep.Text);
+                    double vehicleRate = Convert.ToDouble(txtCarInterestRate.Text);
+                    double vehicleInsurance = Convert.ToDouble(txtEstInsurancePrem.Text);
+                    double PERIOD = Convert.ToDouble(txtPeriod.Text);
+                    #endregion
 
-            car.dblTotalMonthlyCost(vehiclePurchase, PERIOD, vehicleRate, vehicleDeposit, vehicleInsurance);
-            GenerateLimit(ExpLimitAlert);
-            ExpenseReport();
+                    car.dblTotalMonthlyCost(vehiclePurchase, PERIOD, vehicleRate, vehicleDeposit, vehicleInsurance);
+                    GenerateLimit(ExpLimitAlert);//Alert user when expenses < 
+                    ExpenseReport();
+                }
+            }
+            catch(Exception err)
+            {
+                MessageBox.Show(err.ToString());
+            } 
+
         }
         private static void ExpLimitAlert(double expTotal)
         {
@@ -288,19 +324,27 @@ namespace PoeDesign
             try
             {
                 #region pass vars to set methods from Budget and HomeLoan class
-                income = Convert.ToDouble(txtIncome.Text);
-                tax = Convert.ToDouble(txtTax.Text);
-                b.MonthlyIncome = income;
-                b.MonthlyTax = tax;
+
+                if (txtIncome.Text != null && txtTax.Text != null)
+                {
+                    income = Convert.ToDouble(txtIncome.Text);
+                    tax = Convert.ToDouble(txtTax.Text);
+                    b.MonthlyIncome = income;
+                    b.MonthlyTax = tax;
+                }
+
 
                 el.setExpList(Convert.ToInt32(nudExpCount.Value.ToString()));
 
                 lblTotal.Text = "The total is: " + el.getTotal();
+                #region tab position for finances tab
                 txtExpName.Focus();
                 txtExpName.TabIndex = 0;
                 txtExpCost.TabIndex = 1;
                 btnAdd.TabIndex = 2;
                 btnClear.TabIndex = 3;
+                #endregion
+
                 #endregion
             }
             catch (Exception ex)
@@ -326,7 +370,17 @@ namespace PoeDesign
             else if(cbVehicleOption.SelectedIndex.Equals(1))
             {
                 tpHome.SelectTab(tpVehicleBuy);
+               
+                #region tab position for vehicle buy tab
                 txtModel.Focus();
+                txtModel.TabIndex = 0;
+                txtMake.TabIndex = 1;
+                txtCarPurchPrice.TabIndex = 2;
+                txtCarTotDep.TabIndex = 3;
+                txtCarInterestRate.TabIndex = 4;
+                txtPeriod.TabIndex = 5;
+                txtEstInsurancePrem.TabIndex = 6;
+                #endregion
             }
         }
 
@@ -337,9 +391,10 @@ namespace PoeDesign
             strDisplay += "Expense List \n";
             strDisplay += "*****************************\n";
             strDisplay += "Expense Name \t Cost\n";
+
             for (int x = 0; x < el.size(); x++)
             {
-                strDisplay += el.getExpName(x) + "\t R" + el.getExpCost(x) + "\n";
+                strDisplay += el.getExpName(x) + "\t\t R" + el.getExpCost(x) + "\n";
             }
             MessageBox.Show(strDisplay);
         }
