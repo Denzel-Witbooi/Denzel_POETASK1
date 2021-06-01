@@ -45,7 +45,7 @@ namespace PoeDesign
             String strDisplay = "";
             strDisplay = "Principal loan amount: R" + loanAmt +
                 "\nAccumulated loan amount: R" + accLoanAmt +
-                "\nMonthly Repayments: " + monthlyRepay;
+                "\nMonthly Repayments: R" + monthlyRepay;
             MessageBox.Show(strDisplay, "Report");
         }
         #endregion

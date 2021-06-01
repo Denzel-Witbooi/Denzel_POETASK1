@@ -64,3 +64,11 @@ Petrol
 120
 Airtime
 50
+Water
+15000
+Electricity
+1200
+Petrol
+250
+Wifi
+1200

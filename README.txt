@@ -18,24 +18,20 @@ How to use the application:
 
 5.The second page briefly describes what to do
 
-6.The third page will be the Finance page where you enter in: 
-	-Your monthly gross income
-	-Monthly tax
-	-Your expenses e.g Groceries, Water and Lights, 
-					   travel(including petrol), 
-					   cell phone or telephone, and other expenses
-	Once finished click on the save button which will redirect you 
-	to the Accommodation paage
-
-7. Choose the type of accommodation
-
-8. If you chose to rent a property you'll be directed to the Rent page
+6On the finances page you will have to enter the
+necessary values and enter amount of expenses
+-Then click on the save button
+-Which redirects you to the expenses page
+-Where your enter your expenses and they
+- Get displayed on the right in a list box
+ Then enter next to go to accommodation page
+-Choose between your type of accommodation
+1).If you chose to rent a property you'll be directed to the Rent page
 	-Enter your rental amount
 	-Click the calculate button
 	-Message box will show the available money after necessary deductions
 	-Application ends
-
-9. If you chose to buy a property you'll be directed to the Buy page
+2).If you chose to buy a property you'll be directed to the Buy page
 	-Enter the purchase price
 	-Enter the deposit
 	-Enter the interest rate
@@ -43,5 +39,8 @@ How to use the application:
 	-Then click on the calculate button 
 	-Message box will show if your home loan is approved or not 
 	-And another Message box will show the available money after necessary deductions
+3) Choose to Buy a Vehicle
+if yes redirects to Vehicle Buy page where you enter the necessary values
+if no shows expenses and ends program
 
 ****************************************************************************

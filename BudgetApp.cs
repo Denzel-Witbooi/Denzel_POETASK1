@@ -215,6 +215,29 @@ namespace PoeDesign
         }
 
         #region Method To Add expenses to ListBox
+        /* 
+          Author: Reece Wanvig
+* Date: 23 March 2021
+* Title of Source code:Save values to text file
+* Code version:
+*  private void ItemsList()
+        {
+            lbOutput.Items.Clear();
+            string strTemp = String.Format("{0} ,\t{1}", "Product Name", "Price");
+            lbOutput.Items.Add(strTemp);
+            for (int x = 0; x < i.getcounter(); x++)
+                {
+                        strTemp= String.Format("{0} ,\t \t R{1}", i.getProduct(x), i.getPrice(x));
+                        lbOutput.Items.Add(strTemp);
+                }
+                lblTotal.Text = "The total is :" + i.getTotal();
+
+        }
+
+*  #endregion
+*  Type: WindowsForms (.NetCore)
+*  URL: https://github.com/VCNMB-2021C/CovidForms.git
+         */
         private void ItemsList()
         {
             lbExpenses.Items.Clear();
